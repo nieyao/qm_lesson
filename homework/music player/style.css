@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#play{
+    width: 64px;
+    height: 64px;
+}
+
+#play1{
+    width: 64px;
+    height: 64px;
+    animation: rotate 10s infinite linear;
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(0deg)
+    }
+    to{
+        transform: rotate(360deg)
+    }
+}

@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 10px;
+}
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;/*vh相对高度*/
+    font-family: sans-serif;
+    background-color: #3bc1ac;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.voice_container{
+    width: 50rem;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .1);
+    z-index: 1;
+    overflow: hidden;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+   
+}
+
+h1{
+    padding: 0.5rem;
+    background: #ffc600;
+    border-bottom: 5px solid #f3c010;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 100;
+    font-family: 'Pacifico',cursive;
+    text-shadow: 3px 3px 0 #f3c010;
+}
+.voice_container input,
+.voice_container button,
+.voice_container select,
+.voice_container textarea{
+    width: 100%;
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    border: 0;
+    font-size: 2rem;
+    background: #f7f7f7;
+}
+
+textarea{
+    height: 20rem;
+}
+input[type="select"]{
+
+}
+.voice_container button{
+    background: #ffc600;
+    border: 0;
+    width: 49%;
+    float: left;
+    position: relative;
+}
+.voice_container button:nth-of-type(1){
+    margin-right: 2%;
+}
+.voice_container button:active{
+    top: 2px;
+}

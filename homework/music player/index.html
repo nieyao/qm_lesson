@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>音乐播放按钮</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <audio src="./music/洪尘 - 从前慢 - 吉他弹唱.mp3" id="music"></audio>
+    <div id="play">
+        <img src="./img/音乐.png" alt="">
+    </div>
+    <script>
+        var aud = document.getElementById('play');
+        aud.addEventListener('click', player);
+        aud.addEventListener('click',rotate)
+        function player() {
+            if (music.paused) { //判断当前的状态是否为暂停，若是则点击播放，否则暂停
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+        function rotate(){
+            if(music.play){
+                aud.id="play1";
+                aud.style.animationPlayState="running";
+            }
+            if(music.paused){
+                aud.style.animationPlayState="paused";
+            }
+        }
+    </script>
+</body>
+
+</html>

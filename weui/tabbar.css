@@ -1,0 +1,77 @@
+/*
+ *author ny
+ *date 18-9-25
+ *功能 tabbar组件
+ */
+ a{
+     text-decoration: none;
+ }
+ .weui-tabbar {
+     display: flex;
+     position: absolute;
+     bottom: 0;
+     width: 100%;
+     z-index: 500;
+     background-color: #F7F7FA;
+  }
+  
+
+ .weui-tabbar__item{
+     flex: 1;
+     text-align: center;
+     padding: 5px 0 0;
+     font-size: 0;
+     color: #808080;
+ }
+
+ .weui-tabbar__item>span{
+     display: inline-block;
+     position: relative;
+ }
+
+ .weui-tabbar__icon{
+     display: inline-block;
+     width: 27px;
+     height: 27px;
+ }
+
+ .weui-badge{
+     position: absolute;
+     top: -2px;
+     right: -13px;
+     min-width: 8px;
+     background-color: #F43539;
+     display: inline-block;
+     padding: .15em .4em;
+     font-size: 12px;
+     line-height: 12px;
+     border-radius: 18px;/*盒子的圆角*/
+     color: white;
+ }
+
+ .weui-tabbar__label{
+     font-size: 10px;
+     color: #808080;
+     text-align: center;
+     line-height: 1.8;
+ }
+
+ .weui-tabbar__shopping{
+     width: 60%;
+     float: left;
+     display: flex;
+ }
+
+ .weui-tabbar__shopping>a{
+     width:50%;
+     text-align: center;
+     line-height: 52px;
+     color: white; 
+ }
+.weui-tabbar__cart{
+     background-color: #ff950e;
+}
+ .weui-tabbar__buy{  
+     background-color: #ff0434;
+}
+

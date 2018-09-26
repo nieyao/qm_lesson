@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box{
+        width: 50px;
+        height: 50px;
+        background-color: green;
+        line-height: 50px;
+        text-align: center;
+        font-size: 20px;
+        display: inline-block;
+        margin: 10px;
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box">10</div>
+
+    <script>
+    const boxes = document.querySelectorAll('.box');
+    //     boxes.forEach(function(box){
+    //         box.addEventListener('click',function(){
+    //             alert(this.innerHTML);
+    //         })
+    //     })
+    //全局作用域
+    //block 块级作用域
+    //嵌套作用域 
+    //let 会创建一个块级作用域
+    
+    for(var i = 0;i < boxes.length;i++){
+        //异步执行
+        //立即执行函数
+        (function(i){
+        // alert(i);
+        boxes[i].addEventListener('click',function(){
+            //函数作用域
+            alert(i+1);
+        })
+    })(i);
+        
+    }
+    </script>
+</body>
+</html>
