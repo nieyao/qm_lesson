@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>svg 矢量图做进度条</title>
+    <style>
+    html,body{
+        background-color: #2962ff;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+    input{
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        width: 80px;
+    }
+    .progress-ring__circle{
+        /* stroke-dasharray: 10 20;
+        stroke-dashoffset: 100; */
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+        transition: .35s stroke-dashoffset;
+    }
+    </style>
+</head>
+<body>
+    <svg class="progress-ring" height="120" width="120">
+        <circle class="progress-ring__circle" r="52" cx="60" cy="60" stroke-width="4" stroke="white" fill="transparent"/>
+    </svg>
+    <input type="number" value="35" step="5" min="0" max="100"> 
+    <script>
+    var circle = document.querySelector('circle');
+    // console.log(Object.prototype.toString.call(circle));
+    var radius = circle.r.baseVal.value;
+    console.log(radius);
+    var circumference = radius * 2 * Math.PI;
+    // circle.style.strokeDasharray =circumference + ' ' + circumference;//es5的写法
+    circle.style.strokeDasharray = `${circumference} ${circumference}`;//es6的写法
+    circle.style.strokeDashoffset = `${circumference}`;
+    function setProgress(percent){
+        const offset = circumference - percent / 100 *circumference;
+        // offset是从右中部分开始的，而我们的习惯是中上开始的
+        circle.style.strokeDashoffset = offset;
+    }
+    const input = document.querySelector('input');
+    setProgress(input.value);
+    input.addEventListener('change',function(){
+        setProgress(this.value);
+    })
+    // console.log(circumference)
+    // var radius = circle
+    </script>
+</body>
+</html>
