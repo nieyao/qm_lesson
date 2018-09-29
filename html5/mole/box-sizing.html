@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>box-sizing</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        width: 30em;
+        height: 10em;
+        background: black;
+    }
+
+    .box{
+        float: left;
+        width: 50%;
+        height: 5em;
+        background: green;
+        border: 1em solid red;
+        padding: 1em;
+    }
+
+    .box:nth-child(2){
+        background: yellow;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">这个div 占左半边</div>
+        <div class="box">这个div 占右半边</div>
+    </div>
+</body>
+</html>
