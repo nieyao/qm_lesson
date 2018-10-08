@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=#, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100px;
+        z-index: 999;
+    }
+    </style>
+</head>
+<body>
+   <div id="container"></div> 
+   <canvas id="webglcanvas"></canvas>
+   <!-- webgl 库 -->
+   <script src="./libs/three.min.js"></script>
+   <script src="./libs/stats.min.js"></script>
+   <script>
+   var container,
+    canvas,//功能标签 绘图api
+    stats,
+    camera,//相机
+    scene,//场景
+    renderer,//渲染
+    group,//物体组
+    mouseX = 0,
+    mouseY = 0,
+    windowHalfX = window.innerWidth / 2,
+    windowHalfY = window.innerHeight / 2;
+
+    init();
+    animate();
+
+    function init(){
+        container = document.getElementById('container');
+        canvas = document.getElementById('webglcanvas');
+        
+        //3D绘制
+        camera = new THREE.PerspectiveCamera(60,window.innerWidth / window.innerHeight,1,2000);
+        camera.position.z = 500;//相机的远近
+
+        //场景
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xffffff);
+
+        //创建一个组
+        group = new THREE.Group();
+        scene.add(group);
+
+        // 地球 数学形状 贴图
+        var loader = new THREE.TextureLoader();
+        loader.load('land_ocean_ice_cloud_2048.jpg',function(texture){
+            console.log(texture);
+            var geometry = new THREE.SphereGeometry(200,20,20);//形状
+            var material = new THREE.MeshBasicMaterial({map:texture});//材质
+            var mesh = new THREE.Mesh(geometry,material);
+            group.add(mesh);    
+        });
+
+        renderer = new THREE.WebGLRenderer({
+            canvas:canvas,
+            antialias:true
+        });
+
+        renderer.setSize(window.innerWidth,window.innerHeight);
+        document.addEventListener('mousemove', onDocumentMouseMove,false);
+        window.addEventListener('resize',onWindowResize,false);
+    }
+
+    function onWindowResize(){
+        windowHalfX = window.innerWidth / 2;
+        windowHalfY = window.innerHeight / 2;
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth,window.innerHeight);
+    }
+    function onDocumentMouseMove(event){
+        // console.log(event.clientX,event.clientY);
+        mouseX = event.clientX - windowHalfX;
+        mouseY = event.clientY - windowHalfY;
+
+    }
+   
+    function animate(){
+        // canvas 核心
+        requestAnimationFrame(animate);
+        render();
+    }
+
+    function render(){
+        camera.position.x += (mouseX-camera.position.x) * 0.05;
+        camera.position.y += (mouseX-camera.position.y) * 0.05;
+        camera.lookAt(scene.position);
+        group.rotation.y -= 0.005;
+        renderer.render(scene,camera);
+    }
+//    平面的世界是错误的，css perspective:1000px,
+//    transform-style:perserve-3d;
+//    3D
+//    camera Scene render light -> canvas
+   </script>
+</body>
+</html>
