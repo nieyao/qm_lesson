@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="salary">
+    <script>
+    const salaryInput = document.getElementById('salary');
+    salaryInput.addEventListener('change',function(){
+        let salary = Number(this.value);//强制类型转换
+        console.log(salary,typeof salary);
+        // 输入框里输入的哪怕是数字，类型是string，值的类型自动转换 隐式类型转换
+        alert(salary*(12+2.5));
+    });
+
+    //任务：提供给财务 计算工具
+
+    /*
+     *功能：计算全年工资
+     * 
+     * 
+     */
+    function performanceA(salary){
+        return salary * 18;
+    }
+    function performanceB(salary){
+        return salary * 16;
+    }
+    function performanceC(salary){
+        return salary * 14.5;
+    }
+    function performanceD(salary){
+        return salary * 12;
+    }
+    function totalSalary(salary,level = "C"){
+        // if(level !='A' && level !='B' && level !='C' && level !='D'){
+        //     throw new Error('请检查是否输入正确');
+        // }
+        console.log(arguments);
+        if(arguments.length ==0){
+            throw new Error('请检查是否输入正确');
+        }
+        salary = Number(salary);
+        if('ABCD'.indexOf(level) <0){
+            throw new Error('请检查是否输入正确');
+        }
+        if(salary <= 0){
+            throw new Error('请检查是否输入正确');
+        }
+        if(arguments.length > 2 && arguments[2]==='admin'){
+            return salary * (100+performanceA());
+        }
+
+        if(level === 'A'){
+            return performanceA(salary);
+        }
+        if(level === 'B'){
+            return performanceB(salary);
+        }
+        if(level === 'C'){
+            return performanceC(salary);
+        }
+        if(level === 'D'){
+            return performanceD(salary);
+        }  
+    }
+    console.log(totalSalary('15000','A'));
+    // let salary = prompt('请输入用户的工资');
+    // // console.log(salary);
+    // let totalSalary2 = salary * (12 +2.5);
+    // console.log(totalSalary2);
+    </script>
+</body>
+</html>
