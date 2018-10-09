@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ES6 Array 新方法</title>
+</head>
+<body>
+    <script>
+    const race = '100m Dash';
+    const winners = ['Hunber Gath','Singa Song','Imda Bos'];
+    // // 生成json数组 item json { name: , race: '100m Dash', place: 1/2/3}
+    // const win = [];
+    // for(let i = 0; i < winners.length;i++){
+    //     win.push({
+    //         name:winners[i],
+    //         race:race,
+    //         place: i + 1
+    //     });
+    // } 
+    // console.log(win)
+    // 遍历每一项 函数里 返回新的一项
+    const win = winners.map((winner,i) => ({
+        name:winner,
+        race,
+        place: i + 1
+    })
+        
+    );
+    console.log(win);
+    </script>;
+</body>
+</html>
