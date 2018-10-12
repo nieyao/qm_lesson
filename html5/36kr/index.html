@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    *,
+    :after,
+    :before {
+      box-sizing: border-box;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0 0 1.6rem;
+      font-weight: 600;
+      font-size: 100%;
+    }
+
+    button,
+    select {
+      text-transform: none;
+    }
+
+    button,
+    html input[type=button],
+    input[type=reset],
+    input[type=submit] {
+      -webkit-appearance: button;
+      cursor: pointer;
+    }
+
+    button,
+    input:not([type=radio]):not([type=checkbox]),
+    select {
+      vertical-align: middle;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .single-post-comment {
+      width: 720px;
+    }
+
+    .article-detail .single-post-comment .display-module {
+      text-align: center;
+    }
+
+    .article-detail .single-post-comment .comment-list-title {
+      position: relative;
+      margin: 10px 0;
+      padding-left: 8px;
+      text-align: left;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 18px;
+      color: #666;
+    }
+
+    .article-detail .single-post-comment .comment-list-title:before {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: "";
+      width: 3px;
+      height: 100%;
+      background-color: #4285f4;
+    }
+
+    .article-detail .single-post-comment .display-module li {
+      text-align: left;
+      padding: .75rem 0;
+    }
+
+    .article-detail .single-post-comment .display-module .img {
+      float: left;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: .75rem;
+      vertical-align: middle;
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap {
+      overflow: hidden;
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap .user-info {
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap .name {
+      color: #666;
+      font-size: 14px;
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap .reply,
+    .article-detail .single-post-comment .display-module .msgwrap .time {
+      color: #ccc;
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap .user-info-right {
+      float: right;
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap .commentlist-like {
+      cursor: pointer;
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap .commentlist-like-icon {
+      display: inline-block;
+      width: 20px;
+      height: 14px;
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR…dyBTF4wyEvMNhCFXgMqMV+wxyKDK51itzqj3UG6gyMhoFP15FI4pmh+7wAAAAASUVORK5CYII=);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: 50%;
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap .commentlist-like-liked .commentlist-like-icon {
+      background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAAXNSR…cu9hDAXqReTz1oMeO2Zt1rp9kkMVucpE1RLxQoFHBU4C8M2+G/NhLmAgAAAABJRU5ErkJggg==);
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap .commentlist-like-count {
+      margin-left: 2px;
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap .commentlist-like-liked .commentlist-like-count {
+      color: #f95355;
+    }
+
+    .article-detail .single-post-comment .display-module .msgwrap .submit {
+      color: #4285f4;
+      font-size: 14px;
+      padding: 0;
+      margin-left: 20px;
+    }
+
+    .article-detail .single-post-comment .input-module {
+      margin-bottom: 2rem;
+    }
+
+    .article-detail .single-post-comment .input-module .textarea-wrapper {
+      width: 100%;
+      border: 1px solid #d3d7db;
+      border-radius: 3px;
+    }
+
+    .article-detail .single-post-comment .input-module .textarea-wrapper textarea {
+      outline: none;
+      -webkit-appearance: none;
+      padding: .25rem .5rem;
+      width: 100%;
+      background-color: #fff;
+      border: none;
+      font-size: 14px;
+      resize: none;
+      height: 5rem;
+    }
+
+    .article-detail .single-post-comment .input-module .textarea-wrapper .user {
+      padding: .35rem .5rem;
+      background-color: #f7f7f7;
+      overflow: hidden;
+    }
+
+    .article-detail .single-post-comment .input-module .textarea-wrapper button {
+      outline: none;
+      float: right;
+      color: #fff;
+      border-radius: 3px;
+      border: none;
+      background-color: #008df2;
+      font-size: 14px;
+      line-height: 26px;
+    }
+
+    .article-detail .single-post-comment .input-module .textarea-wrapper .current-user {
+      float: left;
+      height: 22px;
+      font-size: 14px;
+      line-height: 26px;
+      margin-top: 2px;
+    }
+
+    .article-detail .single-post-comment .input-module .textarea-wrapper .current-user .img {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: .75rem;
+      margin-top: -4px;
+      vertical-align: middle;
+    }
+
+    .article-detail .single-post-comment .input-module .textarea-wrapper .current-user span {
+      color: #999;
+    }
+
+    .article-detail .single-post-comment .input-module .textarea-wrapper .current-user .name {
+      color: #4285f4;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="article-detail">
+    <div class="single-post-comment">
+      <h4>
+        <a name="comment" class="comment-list-title comment-title">参与讨论</a>
+      </h4>
+      <div class="input-module">
+        <div class="textarea-wrapper">
+          <textarea id="J_comment_area_5156523" placeholder="你怎么看..."></textarea>
+          <div class="user">
+            <button type="button" data-stat-click="pinglun.fabupinglun">提交评论</button>
+            <div class="current-user">
+              <span class="img img111" style="background: url(&quot;https://krplus-pic.b0.upaiyun.com/201512/18/3a887991a3e34ce2bb98fac88492be4d.jpg!480&quot;) center center / cover no-repeat;">
+              </span>
+              <span class="name">旅梦</span>
+            </div>
+          </div>
+        </div>
+        <div class="blockel"></div>
+      </div>
+      <div class="display-module">
+        <div>
+          <div class="comment-list-title">最新评论</div>
+          <ul data-ii="20">
+            <li data-id="664885">
+              <span class="img" style="background: url(&quot;https://krplus-pic.b0.upaiyun.com/201512/18/fcf6b8ba4d734292b94c9ff505adfd99.jpg!120&quot;) 50% 50% / cover no-repeat;"></span>
+              <div class="msgwrap">
+                <div class="user-info">
+                  <span class="name">陈鑫</span>
+                  <span class="time">
+                    <!-- react-text: 253 -->&nbsp;·&nbsp;
+                    <!-- /react-text -->
+                    <!-- react-text: 254 -->1小时前
+                    <!-- /react-text -->
+                  </span>
+                  <div class="user-info-right">
+                    <span class="commentlist-like commentlist-like-liked">
+                      <span class="commentlist-like-icon"></span>
+                      <span class="commentlist-like-count">1</span>
+                    </span>
+                    <a class="submit" data-stat-click="pinglun.huifupinglun">回复</a>
+                  </div>
+                </div>
+                <p>
+                  <span class="text">可惜了，这么好的文章，没人点赞</span>
+                </p>
+              </div>
+              <!-- react-empty: 259 -->
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const currentUser = {
+      username: '旅梦',
+      avatar: 'https://krplus-pic.b0.upaiyun.com/201512/18/3a887991a3e34ce2bb98fac88492be4d.jpg!480'
+    }
+    //userinfo -> html输出
+    function convertUserInfoToHtml() {
+    }
+    function CommentForm() {
+      this.submitBtn = document.querySelector('.user button');
+      this.textarea = document.querySelector('#J_comment_area_5156523');
+      this.addEvent();
+    }
+    CommentForm.prototype = {
+      addEvent: function(){
+        let that = this;
+        this.submitBtn.addEventListener('click',function(){
+          let comment = that.textarea.value;
+          // alert(comment)
+          if(that.check(comment)){
+            that.submit(comment);
+          }
+          else{
+            that.showError();
+          }
+        });
+      },
+      showError: function(){
+        
+      },
+      submit: function(comment) {
+        let commentItem = new CommentItem(comment);
+      },
+      check: function(comment) {
+        if(comment.length === 0 || '法轮功'.indexOf(comment) >=0){
+          return false;
+        }
+        return true;
+      }
+    }
+    function CommentItem(comment) {
+      this.comment = comment;
+      this.ele = document.querySelector('.display-module ul');
+      this.ele.innerHTML += this.getHtml();
+      console.log('新增一条评论');
+      this.bindEvent();
+    }
+    CommentItem.prototype = {
+      bindEvent: function(){
+        let replyBtn = document.querySelector('li[data-id="664886"] a.submit')
+        replyBtn.addEventListener('click',function(){
+          alert('ff');
+        })
+      },
+      getHtml: function(){
+        let html = `<li data-id="664886"><span class="img" style="background: url(${currentUser.avatar}) 50% 50% / cover no-repeat;"></span><div class="msgwrap"><div class="user-info"><span class="name">${currentUser.username}</span><span class="time">&nbsp;·&nbsp;1小时前</span><div class="user-info-right"><span class="commentlist-like commentlist-like-liked"><span class="commentlist-like-icon"></span><span class="commentlist-like-count">1</span></span><a class="submit" data-stat-click="pinglun.huifupinglun">回复</a></div></div><p><span class="text">${this.comment}</span></p></div></li>`
+        return html;
+      },
+      addFavorite: function() {
+      },
+      reply: function() {
+      }
+    }
+    new CommentForm();
+  </script>
+</body>
+
+</html>

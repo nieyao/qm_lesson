@@ -1,0 +1,75 @@
+a {
+  background-color: transparent;
+  transition: all .2s ease;
+  text-decoration: none;
+  cursor: pointer;
+
+}
+
+.article-detail .single-post-comment .comment-list-title:before {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  width: 3px;
+  height: 100%;
+  background-color: #4285f4;
+}
+
+.article-detail .single-post-comment .comment-title {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.article-detail .single-post-comment .comment-list-title {
+  position: relative;
+  margin: 10px 0;
+  padding-left: 8px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  color: #666;
+}
+
+.article-detail .single-post-comment .input-module {
+  margin-bottom: 2rem;
+}
+
+.article-detail .single-post-comment .input-module .textarea-wrapper {
+  width: 100%;
+  border: 1px solid #d3d7db;
+  border-radius: 3px;
+}
+
+button, input, optgroup, select, textarea {
+  font: inherit;
+  margin: 0;
+}
+
+.article-detail .single-post-comment .input-module .textarea-wrapper textarea {
+  outline: none;
+  -webkit-appearance: none;
+  padding: .25rem .5rem;
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  font-size: 14px;
+  resize: none;
+  height: 5rem;
+}
+
+.article-detail .single-post-comment .notlogin textarea {
+  color: #b6cad9;
+}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+.article-detail .single-post-comment .input-module .textarea-wrapper .user {
+  padding: .35rem .5rem;
+  background-color: #f7f7f7;
+  overflow: hidden;
+}
