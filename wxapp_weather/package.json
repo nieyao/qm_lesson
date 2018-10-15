@@ -1,0 +1,20 @@
+{
+  "name": "wxapp_weather",
+  "version": "1.0.0",
+  "description": "- 项目目录\r Page\r wxml weui 组件 swiper\r wxss rpx  设计稿是750rpx\r .js 文件 data 事件监听\r MVVM\r app.js 入口\r app.json 项目级别的配置文件\r app.wxss 项目级别的样式文件",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jsonminify": "^1.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1",
+    "jsonminify": "^0.4.1",
+    "stream-combiner2": "^1.1.1"
+  }
+}
