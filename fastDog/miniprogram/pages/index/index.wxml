@@ -1,0 +1,39 @@
+<van-tabs active="{{ active }}"  line-width="30">
+  <van-icon class="user" name="contact" bind:click="toUser" />
+  <van-tab title="拉货">
+    <view class="mapview">
+      
+      <map id="map" class="map" longitude="{{longitude}}" latitude="{{latitude}}" show-location="true" markers="{{markers}}" bindregionchange="regionchange">
+        <cover-view class="locationImg">
+          <cover-image src="{{locationImg}}" bindtap="location" />
+        </cover-view>
+        <cover-view class="originImg">
+          <cover-image src="{{originImg}}" />
+        </cover-view>
+        <cover-view class="mask" catchtouchmove="preventTouchMove" wx:if="{{show}}"></cover-view>
+      </map>
+      <carview/>
+      <van-field left-icon="location" icon="question" placeholder="{{newadress}}" bind:click-icon="shipper" bindtap="toShipAddr" disabled/>
+      <van-field left-icon="location" icon="question" placeholder="您的目的地？" bind:click-icon="receiver" bindtap="toShipAddr" disabled />
+      <button class="nextbutton">下一步</button>
+      <van-popup show="{{ show }}" position="bottom" overlay="{{true}}" close-on-click-overlay="false" z-index="9999"
+      duration="0">
+          <van-cell-group>
+            <view class="shipperMessage">
+              <van-icon class="close" name="close" bind:click="closeShipper"/>
+              <title>发货人信息</title>
+            </view>
+            <van-field value="{{ value }}" placeholder="{{newadress}}" left-icon="contact" bind:focus="toShipAddr" />
+            <van-field value="{{ value }}" placeholder="楼层及门牌号(可不填)" left-icon="contact" />
+            <van-field value="{{ value }}" placeholder="发货人姓名(可不填)" left-icon="contact" />
+            <van-field value="{{ value }}" placeholder="发货人手机号码(可不填)" left-icon="contact" />
+            <button class="confirm">确认</button>
+          </van-cell-group>
+      </van-popup>
+    </view>
+  </van-tab>
+  <van-tab title="快运">
+
+  </van-tab>
+  
+</van-tabs>

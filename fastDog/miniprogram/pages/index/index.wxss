@@ -1,0 +1,82 @@
+.mapview{
+  position: relative;
+  width: 100%;
+  height: 420rpx;
+  box-sizing: border-box;
+}
+.map{
+  width: 100%; 
+  height: 100%;
+}
+.locationImg{
+  position: absolute;
+  left: 90%;
+  top: 80%;
+  width: 64rpx;
+  height: 64rpx;
+}
+.originImg{
+  position: absolute;
+  top: 168rpx;
+  left: 343rpx;
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.user{
+  position: absolute;
+  top: 25rpx;
+  left: 20rpx;
+  z-index: 100;
+}
+
+.shipperMessage{
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.close{
+  position: absolute;
+  left: 10px;
+}
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 100;
+  opacity: 0.7;
+}
+
+.van-popup--bottom{
+  width: 94%!important;
+}
+
+.confirm{
+  width: 90%;
+  height: 100rpx;
+  background-color: #e64649;
+  color: #ffffff;
+  bottom: 10px;
+  margin-top: 10px;
+  font-size: 28rpx;
+  line-height: 100rpx;
+}
+
+.van-cell{
+  height: 100rpx!important;
+}
+
+.nextbutton{
+  width: 90%;
+  height: 80rpx;
+  margin-top: 20rpx;
+  text-align: center;
+  color: #ffffff;
+  background-color: #e64649;
+}

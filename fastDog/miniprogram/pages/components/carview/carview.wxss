@@ -1,0 +1,66 @@
+/* components/carview.wxss */
+.container{
+   width: 100%;
+   position: relative;
+   /* top: 100px; */
+}
+.container-header{
+  /* float: left; */
+  /* width: 100%; */
+  height: 100rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+}
+.carLists{
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+.container-header .carLists.on{
+  color: #e6454a;
+  border-bottom: 1px solid #e6454a;
+}
+.carview{
+  width: 100%;
+  height: 200rpx;
+  display: inline-block;
+}
+
+.carList{
+  display: flex;
+  width: 90%;
+  height: 200rpx;
+  margin-top: 40rpx;
+  display: inline-block;
+  white-space: nowrap;
+  margin-right: 5%;
+  margin-left: 5%;
+  align-items:center;
+  /* justify-content: center */
+}
+
+.carImg{
+  width: 100%;
+  height: 200rpx;
+  display:flex; 
+  display: inline-block;
+  justify-content:center; 
+  align-items:center;
+}
+
+.arrow-left{
+  z-index: 99;
+  position: absolute;
+  top: 180rpx;
+  left: 50rpx;
+}
+
+.arrow{
+  z-index: 99;
+  position: absolute;
+  top: 180rpx;
+  right: 50rpx;
+}

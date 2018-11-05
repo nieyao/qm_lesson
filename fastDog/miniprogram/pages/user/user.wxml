@@ -1,0 +1,30 @@
+<view class="head">
+  <block wx:if="{{islogin===0}}">
+    <button bindtap="login">登录</button>
+  </block>
+  <block wx:else="islogin===1">
+    <view class="userinfo">
+      <image class="userAvatar" src="{{avatarUrl}}" mode="aspectFill " />
+      <view class="nickname">
+        <span>{{nickname}}</span>
+      </view>
+    </view>
+  </block>
+</view>
+<view class="border"></view>
+<van-cell-group border="{{false}}">
+  <van-cell title="我的订单" icon="description" is-link bind:click="navigatetoOrder" />
+  <van-cell title="我的优惠券" icon="coupon" is-link bind:click="navigatetoCoupon" />
+  <van-cell title="收费标准" icon="debit-pay" is-link bind:click="navigatetoDebit" />
+  <van-cell title="用户协议" icon="protocol" is-link bind:click="navigatetoProtocol" />
+  <van-cell title="联系客服" value="4008-909-009" icon="service" is-link bind:click="calling">
+    <template slot="title">
+      <span class="van-cell-text">单元格</span>
+      <van-tag type="danger">标签</van-tag>
+    </template>
+  </van-cell>
+  <van-cell title="下载APP" icon="download" is-link bind:click="toDownload" />
+  <block wx:if="{{islogin===1}}">
+    <van-cell title="退出登录" icon="login" is-link  bind:click="logOut"/>
+  </block>
+</van-cell-group>

@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "收费标准",
+  "usingComponents": {
+    "carview": "../components/carview/carview"
+  }
+
+}

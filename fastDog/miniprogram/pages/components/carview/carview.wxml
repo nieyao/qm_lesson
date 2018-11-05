@@ -1,0 +1,22 @@
+<!--components/carview.wxml-->
+<view class="container">
+    <view class="container-header">
+    <view class="carLists {{currentTab === index ?'on': ''}}" wx:for="{{carName}}" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" bindtap="switchTab">
+      {{item.name}}
+    </view>
+    </view>
+    <block wx:if="{{index>0}}">
+        <van-icon name="arrow-left" class="arrow-left" bind:click="last" />
+    </block>
+    <block wx:if="{{index<3}}">
+        <van-icon name="arrow" class="arrow" bind:click="next" />
+    </block>
+    <swiper class="carList" current="{{currentTab}}" bindchange="swiperChange">
+      <block wx:for="{{cars}}" wx:key="index">
+        <swiper-item class="carview">
+          <image class="carImg" src="{{item.image}}" mode="aspectFill"/>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  

@@ -1,0 +1,7 @@
+<!--miniprogram/pages/login/login.wxml-->
+<view class="reminder">
+<view class="line1"></view>
+<view class="span">推荐方式登录</view>
+<view class="line2"></view>
+</view>
+<button open-type="getUserInfo" bindgetuserinfo="getUserInfo"><van-icon name="chat"/>账号登录</button>

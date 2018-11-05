@@ -1,0 +1,36 @@
+/* miniprogram/pages/coupon/coupon.wxss */
+wxml{
+  margin: 0;
+  padding: 0;
+}
+.container-header{
+  position: relative;
+  height: 78rpx;
+}
+.place-holder{
+  font-size: 24rpx;
+  margin-left: 15px;
+}
+
+.van-cell-group{
+  width: 70%;
+  height: 78rpx;
+  margin-left: 20px;
+  display: inline-block;
+}
+.van-cell{
+  background-color: #ebebeb!important; 
+}
+.exchange{
+  display: inline-block;
+  height: 78rpx;
+  width: 18%;
+  background-color: #e6454a;
+  color: #ffffff;
+  position: absolute;
+  margin-left: 10px;
+  box-sizing: border-box;
+  line-height: 78rpx;
+  font-size: 32rpx;
+}
+

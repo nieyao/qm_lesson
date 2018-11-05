@@ -1,0 +1,61 @@
+/* miniprogram/pages/ShipAddr/toShipAddr.wxss */
+page,.main{
+  height: 100%;
+  box-sizing: border-box;
+}
+.searchBox{
+  width: 100%;
+  box-shadow: 0 2px 5px #e5e5e5;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.search{
+  width: 60%;
+  height: 90rpx;
+  line-height: 50rpx;
+}
+
+.cancel{
+  width: 15%;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: right;
+  color: #999999;
+  display: inline-block;
+  border-left: 2px solid #ebebeb;
+}
+
+.currentcity{
+  width: 15%;
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: left;
+  color: #999999;
+  display: inline-block;
+  border-right: 2px solid #ebebeb;
+}
+/* .content{
+  width:90%;
+  height:90%;
+  
+} */
+.scrollcontent{
+  position: absolute;
+  width: 94%;
+  height:90%;
+  margin-top: 16rpx;
+  margin-left: 3%;
+  overflow: hidden;
+  box-shadow: 0px 0 2px 2px #e5e5e5;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color:transparent;
+}

@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/debit/debit",
+   
+    "pages/ShipAddr/ShipAddr",
+    "pages/user/user",
+    "pages/login/login",
+    "pages/userConsole/userConsole",
+    "pages/storageConsole/storageConsole",
+    "pages/databaseGuide/databaseGuide",
+    "pages/addFunction/addFunction",
+    "pages/deployFunctions/deployFunctions",
+    "pages/chooseLib/chooseLib",
+    "pages/order/order",
+    "pages/coupon/coupon",
+    "pages/protocol/protocol",
+    "pages/switchcity/switchcity",
+    "pages/otherlogin/otherlogin"
+    
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "快狗打车",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-cell": "./vant-weapp/cell/index",
+    "van-cell-group": "./vant-weapp/cell-group/index",
+    "van-button": "./vant-weapp/button/index",
+    "van-tabs": "./vant-weapp/tabs/index",
+    "van-tab": "./vant-weapp/tab/index",
+    "van-field": "./vant-weapp/field/index",
+    "van-icon": "./vant-weapp/icon/index",
+    "van-dialog": "./vant-weapp/dialog/index",
+    "van-popup": "./vant-weapp/popup/index"
+  }
+}
