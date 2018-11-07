@@ -1,4 +1,4 @@
-// miniprogram/pages/ShipAddr/ShipAddr.js
+// miniprogram/pages/ReceiveAddr/ReceiveAddr.js
 const app = getApp();
 const globalData = app.globalData;
 
@@ -137,7 +137,7 @@ Page({
 
   getlistvalue:function(e){
     // console.log(e.currentTarget.dataset.title)
-    globalData.address = e.currentTarget.dataset.title;
+    globalData.receiveAdrr = e.currentTarget.dataset.title;
     wx.navigateTo({
       url:"../index/index"
     })

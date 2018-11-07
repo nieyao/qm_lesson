@@ -4,7 +4,10 @@ App({
     nickname:"",
     avatarUrl:"",
     islogin:0,
-    newaddress:""
+    newaddress:"",
+    address:"",
+    receiveAdrr:"您的目的地？",
+    city:"南昌"
   },
  
 })

@@ -1,9 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/debit/debit",
-   
+    "pages/otherlogin/otherlogin",
+    
     "pages/ShipAddr/ShipAddr",
+    
+    "pages/debit/debit",
     "pages/user/user",
     "pages/login/login",
     "pages/userConsole/userConsole",
@@ -16,8 +18,8 @@
     "pages/coupon/coupon",
     "pages/protocol/protocol",
     "pages/switchcity/switchcity",
-    "pages/otherlogin/otherlogin"
     
+    "pages/ReceiveAddr/ReceiveAddr"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

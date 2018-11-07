@@ -1,7 +1,6 @@
-<!--miniprogram/pages/ShipAddr/toShipAddr.wxml-->
-<view class="searchBox">
-  <view class="currentcity" bindtap="toswitchcity">南昌<van-icon name="success" />
-  </view>
+<!-- miniprogram/pages/ShipAddr/toShipAddr.wxml-->
+ <view class="searchBox">
+  <view class="currentcity" bindtap="toswitchcity">{{city}}</view>
   <input class="search" type="text" placeholder="请选择起始地点" bindinput="search" />
   <text class="cancel" bindtap="toindex">取消</text>
 </view>

@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    selected1:true,
+    selected2:false
   },
 
   /**
@@ -62,5 +63,19 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  selected1:function(){
+    this.setData({
+      selected1:true,
+      selected2:false
+    })
+  },
+
+  selected2:function(){
+    this.setData({
+      selected1:false,
+      selected2:true
+    })
   }
 })

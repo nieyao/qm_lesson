@@ -1,2 +1,7 @@
 <!--miniprogram/pages/otherlogin/otherlogin.wxml-->
-<text>miniprogram/pages/otherlogin/otherlogin.wxml</text>
+<view class="tabheader">
+  <view class="tabbar1 {{selected1?'red':'black'}}" bindtap="selected1">拉货</view>
+  <view class="tabbar2 {{selected2?'red':'black'}}" bindtap="selected2">快运</view>
+</view>
+<view class="{{selected1?'show':'hidden'}}">for system</view>
+<view class="{{selected2?'show':'hidden'}}">for activity</view>

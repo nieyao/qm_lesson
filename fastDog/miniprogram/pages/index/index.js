@@ -15,9 +15,12 @@ Page({
     newlatitude:"",
     newlongitude:"",
     newadress:"",
+    receiveAdrr:"您的目的地？",
     locationImg:"../../images/location.png",
     originImg:"../../images/origin.png",
-    show:false
+    show:false,
+    selected1:true,
+    selected2:false
     // avatarUrl: './user-unlogin.png',
     // userInfo: {},
     // logged: false,
@@ -31,7 +34,9 @@ Page({
   },
 
   onShow:function(){
-    
+    this.setData({
+      receiveAdrr:globalData.receiveAdrr
+    })
   },
 
   onReady:function(){
@@ -48,8 +53,8 @@ Page({
     },
       success: addressRes => {
       const address = addressRes.result.formatted_addresses.recommend;
-      var queryAdress = globalData.address;
-      this.setData({newadress : !queryAdress ?  address : queryAdress}) 
+      var shipAdress = globalData.address;
+      this.setData({newadress : !shipAdress ?  address : shipAdress}) 
     
         // console.log(address)
       },
@@ -178,7 +183,7 @@ Page({
           // console.log(res.latitude,res.longitude)
           that.setData({
             newlatitude:res.latitude,
-            newlongitude:res.longitude
+            newlongitude:res.longitude,
           })
         }
       })
@@ -198,6 +203,12 @@ Page({
     })
   },
 
+  toReceiveAddr:function(){
+    wx.navigateTo({
+      url:"../ReceiveAddr/ReceiveAddr"
+    })
+  },
+
   shipper:function(){
     this.setData({ show: true });
   },
@@ -208,5 +219,23 @@ Page({
 
   preventTouchMove:function(){
 
+  },
+
+  nextStep:function(){
+    console.log("ff")
+  },
+
+  selected1:function(){
+    this.setData({
+      selected1:true,
+      selected2:false
+    })
+  },
+
+  selected2:function(){
+    this.setData({
+      selected1:false,
+      selected2:true
+    })
   }
   })

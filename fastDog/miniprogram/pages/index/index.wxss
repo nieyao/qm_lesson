@@ -1,13 +1,58 @@
 .mapview{
   position: relative;
   width: 100%;
-  height: 420rpx;
+  height: 100vh;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column; 
 }
+
+.tabheader{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content:center;
+}
+
+.tabbar1,.tabbar2{
+  display: inline-block;
+  width: 10%;
+  height: 94rpx;
+  line-height: 94rpx;
+  text-align: center;
+
+}
+
+.tabbar1{
+  margin-right: 100rpx;
+}
+
+.red{
+  color: red;
+  border-bottom: 1px solid red;
+}
+
+.black{
+  color: black;
+ 
+}
+
+.show{
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden{
+  display: none;
+}
+
 .map{
   width: 100%; 
-  height: 100%;
+  flex: 1;
 }
+
 .locationImg{
   position: absolute;
   left: 90%;
@@ -15,10 +60,15 @@
   width: 64rpx;
   height: 64rpx;
 }
+.originView{
+  width: 100%;
+  height: 100%;
+  display:flex;                    
+  justify-content: center;        
+  align-items: center;
+}
+
 .originImg{
-  position: absolute;
-  top: 168rpx;
-  left: 343rpx;
   width: 64rpx;
   height: 64rpx;
 }
@@ -74,9 +124,12 @@
 
 .nextbutton{
   width: 90%;
-  height: 80rpx;
+  height: 80rpx!important;
+  line-height: 80rpx;
   margin-top: 20rpx;
+  margin-bottom: 20rpx;
   text-align: center;
   color: #ffffff;
   background-color: #e64649;
 }
+

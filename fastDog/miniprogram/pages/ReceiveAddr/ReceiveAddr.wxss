@@ -1,4 +1,4 @@
-/* miniprogram/pages/ShipAddr/toShipAddr.wxss */
+/* miniprogram/pages/ReceiveAddr/ReceiveAddr.wxss */
 page,.main{
   height: 100%;
   box-sizing: border-box;
@@ -53,4 +53,3 @@ page,.main{
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 } 
-

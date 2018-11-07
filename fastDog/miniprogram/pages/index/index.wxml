@@ -1,39 +1,46 @@
-<van-tabs active="{{ active }}"  line-width="30">
-  <van-icon class="user" name="contact" bind:click="toUser" />
-  <van-tab title="拉货">
-    <view class="mapview">
-      
-      <map id="map" class="map" longitude="{{longitude}}" latitude="{{latitude}}" show-location="true" markers="{{markers}}" bindregionchange="regionchange">
-        <cover-view class="locationImg">
-          <cover-image src="{{locationImg}}" bindtap="location" />
-        </cover-view>
-        <cover-view class="originImg">
-          <cover-image src="{{originImg}}" />
-        </cover-view>
-        <cover-view class="mask" catchtouchmove="preventTouchMove" wx:if="{{show}}"></cover-view>
-      </map>
-      <carview/>
-      <van-field left-icon="location" icon="question" placeholder="{{newadress}}" bind:click-icon="shipper" bindtap="toShipAddr" disabled/>
-      <van-field left-icon="location" icon="question" placeholder="您的目的地？" bind:click-icon="receiver" bindtap="toShipAddr" disabled />
-      <button class="nextbutton">下一步</button>
-      <van-popup show="{{ show }}" position="bottom" overlay="{{true}}" close-on-click-overlay="false" z-index="9999"
-      duration="0">
-          <van-cell-group>
-            <view class="shipperMessage">
-              <van-icon class="close" name="close" bind:click="closeShipper"/>
-              <title>发货人信息</title>
-            </view>
-            <van-field value="{{ value }}" placeholder="{{newadress}}" left-icon="contact" bind:focus="toShipAddr" />
-            <van-field value="{{ value }}" placeholder="楼层及门牌号(可不填)" left-icon="contact" />
-            <van-field value="{{ value }}" placeholder="发货人姓名(可不填)" left-icon="contact" />
-            <van-field value="{{ value }}" placeholder="发货人手机号码(可不填)" left-icon="contact" />
-            <button class="confirm">确认</button>
-          </van-cell-group>
-      </van-popup>
-    </view>
-  </van-tab>
-  <van-tab title="快运">
+<view class="mapview">
 
-  </van-tab>
-  
-</van-tabs>
+  <view class="tabheader">
+    <view class="tabbar1 {{selected1?'red':'black'}}" bindtap="selected1">拉货</view>
+    <view class="tabbar2 {{selected2?'red':'black'}}" bindtap="selected2">快运</view>
+    <van-icon class="user" name="contact" bind:click="toUser" />
+  </view>
+  <view class="{{selected1?'show':'hidden'}}">
+    <map id="map" class="map" longitude="{{longitude}}" latitude="{{latitude}}" show-location="true" markers="{{markers}}" bindregionchange="regionchange">
+      <view class="locationImg">
+        <cover-image src="{{locationImg}}" bindtap="location" />
+      </view>
+      <view class="originView">
+        <cover-image src="{{originImg}}" class="originImg" />
+      </view>
+      <cover-view class="mask" catchtouchmove="preventTouchMove" wx:if="{{show}}"></cover-view>
+    </map>
+    <view class="car-controller">
+      <carview/>
+      <van-field left-icon="location" icon="question" placeholder="{{newadress}}" bind:click-icon="shipper" bind:focus="toShipAddr"
+      />
+      <van-field left-icon="location" icon="question" placeholder="{{receiveAdrr}}" bind:click-icon="receiver" bind:focus="toReceiveAddr"
+      />
+      <button class="nextbutton" bindtap="nextStep">下一步</button>
+      <van-popup show="{{ show }}" position="bottom" overlay="{{true}}" close-on-click-overlay="false" z-index="9999" duration="0">
+        <van-cell-group>
+          <view class="shipperMessage">
+            <van-icon class="close" name="close" bind:click="closeShipper" />
+            <title>发货人信息</title>
+          </view>
+          <van-field value="{{ value }}" placeholder="{{newadress}}" left-icon="contact" bind:focus="toShipAddr" />
+          <van-field value="{{ value }}" placeholder="楼层及门牌号(可不填)" left-icon="contact" />
+          <van-field value="{{ value }}" placeholder="发货人姓名(可不填)" left-icon="contact" />
+          <van-field value="{{ value }}" placeholder="发货人手机号码(可不填)" left-icon="contact" />
+          <button class="confirm">确认</button>
+        </van-cell-group>
+      </van-popup>
+
+    </view>
+
+  </view>
+  <view class="{{selected2?'show':'hidden'}}">
+    for activity
+  </view>
+
+</view>
