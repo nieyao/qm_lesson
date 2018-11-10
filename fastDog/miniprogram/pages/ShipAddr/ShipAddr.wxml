@@ -9,7 +9,7 @@
     <block wx:for="{{searchresult}}" wx:key="index">
       <van-cell-group border="{{true}}">
         <van-cell class="resultlist" title="{{item.title}}" border="{{true}}" data-title="{{item.title}}"
-        icon="location" label="{{item.address}}" bind:click="getlistvalue"/>
+        data-location="{{item.location}}" icon="location" label="{{item.address}}" bind:click="getlistvalue"/>
       </van-cell-group>
     </block>
   </scroll-view>

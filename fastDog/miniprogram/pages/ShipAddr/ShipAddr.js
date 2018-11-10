@@ -18,7 +18,8 @@ Page({
     keyword:"",
     searchresult:[],
     scrollheight:0,
-    city:""
+    city:"",
+    currentLocation:""
   },
 
   /**
@@ -102,9 +103,9 @@ Page({
   },
 
   toindex:function(){
-    wx.navigateTo({
-      url:'../index/index'
-    })
+    wx.navigateBack({
+      delta: 1
+  })
   },
   
   toswitchcity:function(){
@@ -136,10 +137,13 @@ Page({
   },
 
   getlistvalue:function(e){
-    // console.log(e.currentTarget.dataset.title)
+    console.log(e.currentTarget.dataset.title)
     globalData.address = e.currentTarget.dataset.title;
-    wx.navigateTo({
-      url:"../index/index"
-    })
+    globalData.shipLocation = e.currentTarget.dataset.location;
+    console.log(e.currentTarget.dataset.location)
+    // globalData.newaddress = e.currentTarget.dataset.title;
+    wx.navigateBack({
+      delta: 1
+  })
   }
 })

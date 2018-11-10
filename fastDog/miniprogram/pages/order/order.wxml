@@ -1,6 +1,27 @@
 <!--miniprogram/pages/order/order.wxml-->
 <van-tabs v-model="active">
-  <van-tab title="全部">内容 1</van-tab>
+  <van-tab title="全部">
+    <block wx:for="{{orders}}" wx:key="index">
+      <view class="allOrders">
+      
+          <view class="header">
+            <span class="time">实时   {{item.time}}</span>
+            <block wx:if="{{item.isdone == false}}">
+              <span class="status">已取消</span>
+            </block>
+            <block wx:else>
+                <span class="status">已完成</span>
+            </block>
+          </view>
+          <view class="content">
+            <view class="shipAddr">{{item.shipAddr}}</view>
+            <view class="receiveAddr">{{item.receiveAdrr}}</view>
+          </view>
+          <view class="footer">预估价格：￥{{item.price}}</view>
+        
+      </view>
+    </block>
+  </van-tab>
   <van-tab title="服务中">内容 2</van-tab>
   <van-tab title="代付款">内容 3</van-tab>
 </van-tabs>

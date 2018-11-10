@@ -1,0 +1,10 @@
+<!--miniprogram/pages/sendOrder/sendOrder.wxml-->
+<view class="container">
+  <map class="map" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></map>
+  <view class="wait">正在派单，请稍后 ···</view>
+  <view class="footer">
+    <view class="contact">联系客服</view>
+    <view class="cancel" bindtap="cancelOrder">取消订单</view>
+  </view>
+</view>
+

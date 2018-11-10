@@ -1,7 +1,6 @@
 <!--miniprogram/pages/ReceiveAddr/ReceiveAddr.wxml-->
 <view class="searchBox">
-    <view class="currentcity" bindtap="toswitchcity">{{city}}<van-icon name="success" />
-    </view>
+    <view class="currentcity" bindtap="toswitchcity">{{city}}</view>
     <input class="search" type="text" placeholder="请选择目的地" bindinput="search" />
     <text class="cancel" bindtap="toindex">取消</text>
   </view>
@@ -10,7 +9,7 @@
       <block wx:for="{{searchresult}}" wx:key="index">
         <van-cell-group border="{{true}}">
           <van-cell class="resultlist" title="{{item.title}}" border="{{true}}" data-title="{{item.title}}"
-          icon="location" label="{{item.address}}" bind:click="getlistvalue"/>
+          data-location="{{item.location}}" icon="location" label="{{item.address}}" bind:click="getlistvalue"/>
         </van-cell-group>
       </block>
     </scroll-view>

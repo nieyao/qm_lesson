@@ -1,0 +1,22 @@
+/* miniprogram/pages/cancelOrder/cancelOrder.wxss */
+.header{
+  margin-top: 50rpx;
+  text-align: center;
+  width: 750rpx;
+  font-size: 36rpx;
+}
+.reason{
+  background: #f7f7f7;
+  width: 660rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: left;
+  padding: 30rpx;
+  font-size: 30rpx;
+  margin: 20rpx;
+}
+.btn{
+  width: 660rpx;
+  background: #dedede;
+  color: #ffffff;
+}

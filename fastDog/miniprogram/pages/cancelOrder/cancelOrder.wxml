@@ -1,0 +1,12 @@
+<!--miniprogram/pages/cancelOrder/cancelOrder.wxml-->
+<view class="container">
+  <view class="header">请您告诉我们取消原因，我们会努力改进！</view>
+  <view class="content">
+    <view class="reasons" wx:for="{{reasons}}" wx:key="index">
+      <view class="reason">{{item.reason}}</view>
+    </view>
+  </view>
+  <view class="footer">
+    <button class="btn" bindtap="cancel">提交</button>
+  </view>
+</view>

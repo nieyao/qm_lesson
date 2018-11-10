@@ -1,1 +1,56 @@
 /* miniprogram/pages/order/order.wxss */
+page{
+  background: #f5f5f5;
+  font-size: 30rpx;
+}
+.allOrders{
+  width: 700rpx;
+  margin: 20rpx auto;
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+
+.header{
+  width: 700rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.time{
+  padding-left: 30rpx;
+}
+
+.status{
+  color: #e6454a;
+  float: right;
+  margin-right: 30rpx;
+}
+
+.content{
+  width: 700rpx;
+  height: 160rpx;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.shipAddr{
+  width: 700rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 30rpx;
+}
+
+.receiveAddr{
+  width: 700rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 30rpx;
+}
+
+.footer{
+  width: 700rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 30rpx;
+}

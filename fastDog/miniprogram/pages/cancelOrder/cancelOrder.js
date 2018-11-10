@@ -1,16 +1,35 @@
-// miniprogram/pages/order/order.js
+// miniprogram/pages/cancelOrder/cancelOrder.js
 wx.cloud.init();
 const app = getApp();
 const globalData = app.globalData;
 const db = wx.cloud.database();
-const orders = db.collection('orders')
+const cancelOrder = db.collection('orders')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    orders:[]
+    reasons:[
+      {
+        reason:'计划有变，已不需要服务',
+        id:0
+      },
+      {
+        reason:'信息填写有误，需重新下单',
+        id:1
+      },
+      {
+        reason:'需要指定司机服务',
+        id:2
+      },
+      {
+        reason:'我已经找到其他车了',
+        id:3
+      },
+    ]
+      
+    
   },
 
   /**
@@ -31,10 +50,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.showLoading({
-      title: '加载中',
-    })
-    this.queryOrder();
+
   },
 
   /**
@@ -71,18 +87,23 @@ Page({
   onShareAppMessage: function () {
 
   },
-  queryOrder:function(){
-    orders.where({
-      _openid:'o-ywE5s0ZPvFzEPqqKnhaSCgXrvE'
-    }).get({
-      success: res=> {
-        this.setData({
-          shipAddr:res.data[0].shipAddr,
-          orders:res.data
-        })
-        // console.log(res.data)
-        wx.hideLoading();
+
+  cancel:function(){
+    //添加取消订单数据
+    cancelOrder.add({
+      data:{
+        time:globalData.time,
+        shipAddr:globalData.address,
+        receiveAdrr:globalData.receiveAdrr,
+        price:globalData.price,
+        isdone:false
       }
     })
+    app.init();
+    wx.navigateTo({
+      url:'../index/index'
+    })
+    
+    // console.log(globalData.time,globalData.address,globalData.receiveAdrr,globalData.price)
   }
 })

@@ -1,10 +1,12 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/order/order",
+    
+    "pages/sendOrder/sendOrder",
+    "pages/cancelOrder/cancelOrder",
     "pages/otherlogin/otherlogin",
-    
     "pages/ShipAddr/ShipAddr",
-    
     "pages/debit/debit",
     "pages/user/user",
     "pages/login/login",
@@ -14,12 +16,12 @@
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
-    "pages/order/order",
+    
     "pages/coupon/coupon",
     "pages/protocol/protocol",
     "pages/switchcity/switchcity",
-    
     "pages/ReceiveAddr/ReceiveAddr"
+    
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

@@ -27,7 +27,6 @@ Page({
       wx.getSetting({
         success: (res) => {
           console.log(res)
-          
           if (res.authSetting[name]) {
             success();
             res.authSetting={};

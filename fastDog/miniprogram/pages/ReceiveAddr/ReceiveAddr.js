@@ -49,14 +49,14 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+       
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    
   },
 
   /**
@@ -102,9 +102,9 @@ Page({
   },
 
   toindex:function(){
-    wx.navigateTo({
-      url:'../index/index'
-    })
+    wx.navigateBack({
+      delta: 1
+  })
   },
   
   toswitchcity:function(){
@@ -138,8 +138,15 @@ Page({
   getlistvalue:function(e){
     // console.log(e.currentTarget.dataset.title)
     globalData.receiveAdrr = e.currentTarget.dataset.title;
-    wx.navigateTo({
-      url:"../index/index"
-    })
+    globalData.recLocation = e.currentTarget.dataset.location
+    if(!globalData.shipLocation){
+      globalData.shipLocation = {
+        lat: globalData.currentLat,
+        lng: globalData.currentLng 
+      }
+    }
+    wx.navigateBack({
+      delta: 1
+  })
   }
 })

@@ -7,40 +7,89 @@
   </view>
   <view class="{{selected1?'show':'hidden'}}">
     <map id="map" class="map" longitude="{{longitude}}" latitude="{{latitude}}" show-location="true" markers="{{markers}}" bindregionchange="regionchange">
-      <view class="locationImg">
+      <cover-view class="locationImg">
         <cover-image src="{{locationImg}}" bindtap="location" />
-      </view>
+      </cover-view>
       <view class="originView">
         <cover-image src="{{originImg}}" class="originImg" />
       </view>
       <cover-view class="mask" catchtouchmove="preventTouchMove" wx:if="{{show}}"></cover-view>
+      <block wx:if="{{isNext}}">
+        <cover-view class="return" bindtap="return">返回上一页</cover-view>
+      </block>
     </map>
+    <block wx:if="{{isNext}}">
+      <view class="car-controller">
+        <view class="priceBox">
+          <view class="price">预计<span style="font-size: 54rpx;">{{price}}</span>元<van-icon name="arrow"/></view>
+          <view class="price-label">为您提供60分钟免费装卸时长</view>
+          </view>
+          <van-cell-group>
+            <van-cell icon="contact" is-link title="特殊车型"  />
+            <van-cell icon="contact" is-link title="订单备注"  />
+          </van-cell-group>
+          <button class="confirm" bindtap="toSendOrder">确认用车</button>
+      </view>
+    </block>
+    <block wx:else>
     <view class="car-controller">
-      <carview/>
-      <van-field left-icon="location" icon="question" placeholder="{{newadress}}" bind:click-icon="shipper" bind:focus="toShipAddr"
+      <view class="container">
+        <view class="container-header">
+        <view class="carLists {{currentTab === index ?'on': ''}}" wx:for="{{carName}}" wx:key="index" data-index="{{index}}" bindtap="switchTab">
+          {{item.name}}
+        </view>
+        </view>
+        <block wx:if="{{index>0}}">
+            <van-icon name="arrow-left" class="arrow-left" bind:click="last" />
+        </block>
+        <block wx:if="{{index<3}}">
+            <van-icon name="arrow" class="arrow" bind:click="next" />
+        </block>
+        <swiper class="carList" current="{{currentTab}}" bindchange="swiperChange">
+          <block wx:for="{{cars}}" wx:key="index">
+            <swiper-item class="carview">
+              <image class="carImg" src="{{item.image}}" mode="aspectFill"/>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <van-field left-icon="location" icon="question" placeholder="{{newaddress}}" bind:click-icon="shipper" bind:focus="toShipAddr"
       />
       <van-field left-icon="location" icon="question" placeholder="{{receiveAdrr}}" bind:click-icon="receiver" bind:focus="toReceiveAddr"
       />
-      <button class="nextbutton" bindtap="nextStep">下一步</button>
-      <van-popup show="{{ show }}" position="bottom" overlay="{{true}}" close-on-click-overlay="false" z-index="9999" duration="0">
-        <van-cell-group>
-          <view class="shipperMessage">
-            <van-icon class="close" name="close" bind:click="closeShipper" />
-            <title>发货人信息</title>
-          </view>
-          <van-field value="{{ value }}" placeholder="{{newadress}}" left-icon="contact" bind:focus="toShipAddr" />
-          <van-field value="{{ value }}" placeholder="楼层及门牌号(可不填)" left-icon="contact" />
-          <van-field value="{{ value }}" placeholder="发货人姓名(可不填)" left-icon="contact" />
-          <van-field value="{{ value }}" placeholder="发货人手机号码(可不填)" left-icon="contact" />
-          <button class="confirm">确认</button>
-        </van-cell-group>
-      </van-popup>
-
+      <block wx:if="{{distance}}">
+      <view class="priceBox">
+      <view class="price">预计<span style="font-size: 54rpx;">{{price}}</span>元<van-icon name="arrow"/></view>
+      <view class="price-label">为您提供60分钟免费装卸时长</view>
+      </view>
+      </block>
+      <block wx:if="{{distance}}">
+          <button class="nextbutton" bindtap="nextStep">下一步</button>
+      </block>
+      <block wx:else>
+          <button class="nextbutton" bindtap="nextStep" disabled style="background: #f08f92">下一步</button>
+      </block>
     </view>
+    </block>
+    
 
+  
   </view>
   <view class="{{selected2?'show':'hidden'}}">
     for activity
   </view>
 
 </view>
+<van-popup show="{{ show }}" position="bottom" overlay="{{true}}" close-on-click-overlay="false" z-index="9999" duration="0">
+  <van-cell-group>
+    <view class="shipperMessage">
+      <van-icon class="close" name="close" bind:click="closeShipper" />
+      <title>发货人信息</title>
+    </view>
+    <van-field value="{{ value }}" placeholder="{{newaddress}}" left-icon="contact" bind:focus="toShipAddr" />
+    <van-field value="{{ value }}" placeholder="楼层及门牌号(可不填)" left-icon="contact" />
+    <van-field value="{{ value }}" placeholder="发货人姓名(可不填)" left-icon="contact" />
+    <van-field value="{{ value }}" placeholder="发货人手机号码(可不填)" left-icon="contact" />
+    <button class="confirm">确认</button>
+  </van-cell-group>
+</van-popup>
