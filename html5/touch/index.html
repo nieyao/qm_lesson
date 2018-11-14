@@ -2,23 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Alloy Finger</title>
   <style>
-  *{
+  * {
     margin: 0;
     padding: 0;
   }
-
-  html,body{
+  html, body {
     bottom: 0;
     background-color: #cccccc;
     text-align: center;
     font: 14px / 1.5 "Microsoft Yahei" sans-serif;
   }
-
-  .ribbon{
+  .ribbon {
     top: 3.2em;
     right: -3.7em;
     color: #ffffff;
@@ -28,39 +26,39 @@
     text-align: center;
     text-decoration: none;
     -webkit-user-select: none;
-    -moz-user-select: none;
     -ms-user-select: none;
+    -moz-user-select: none;
     user-select: none;
     background-color: green;
     z-index: 10000;
     transform: rotate(45deg);
   }
-
-  .title{
+  .title {
     height: 30px;
     color: #333333;
     font-size: 20px;
     line-height: 30;
   }
-
   .imgBox{
     margin-bottom: 10px;
     border-bottom: 1px solid #333333;
   }
-
-  .example img{
+  .example img {
     width: 160px;
-
   }
   </style>
 </head>
 <body>
   <a href="https://github.com/AlloyTeam/AlloyFinger" class="ribbon">Fork me on Github</a>
   <div class="example">
-      <div class="title">pinch</div>
-      <div class="imgBox">
-        <img src="http://alloyteam.github.io/AlloyFinger/asset/test.png" alt="" id="pinchImg">
-      </div>
+    <div class="title">pinch</div>
+    <div class="imgBox">
+      <img src="https://alloyteam.github.io/AlloyFinger/asset/test.png" alt="" id="pinchImg">
+    </div>
+    <div class="title">rotate</div>
+    <div class="imgBox">
+      <img src="https://alloyteam.github.io/AlloyFinger/asset/test.png" alt="" id="rotateImg">
+    </div>
   </div>
   <script src="https://alloyteam.github.io/AlloyFinger/asset/transform.js"></script>
   <script src="https://alloyteam.github.io/AlloyFinger/alloy_finger.js"></script>
@@ -69,13 +67,32 @@
   const pinchImg = document.getElementById('pinchImg');
   Transform(pinchImg);  //变形这张图片
   let initScale = 1;
-  new AlloyFinger(pinchImg,{
-    pinch: function(evt){
+  new AlloyFinger(pinchImg, {
+    pinch: function(evt) {
       pinchImg.scaleX = pinchImg.scaleY = initScale * evt.zoom;
     },
-
-    multipointStart: function(){
-      initStart: pinchImg.scaleX
+    multipointStart: function() {
+      initStart =  pinchImg.scaleX
+    }
+  })
+  const rotateImg = document.getElementById('rotateImg');
+  Transform(pinchImg);
+  new AlloyFinger(rotateImg, {
+    rotate: function(evt) {
+      rotateImg.rotateZ += evt.angle;
+    }
+  });
+  const pinchRoateImg = document.getElementById('pinchRotateImg');
+  Transform(pinchRoateImg)
+  new AlloyFinger(pinchRoateImg, {
+    rotate: function(evt) {
+      pinchRoateImg.rotateZ += evt.angle
+    },
+    multipointStart: function() {
+      initScale = pinchRoateImg.scaleX;
+    },
+    pinch: function(evt) {
+      pinchRoateImg.scaleX = pinchRoateImg.scaleY = initScale * evt.zoom;
     }
   })
   </script>

@@ -1,0 +1,17 @@
+<!--miniprogram/pages/completeOrder/completeOrder.wxml-->
+<view class="container">
+    <view class="header">给司机来个个评价吧！</view>
+    <view class="content">
+      <view class="reasons" wx:for="{{reasons}}" wx:key="index">
+        <view class="reason {{id === index ?'on': ''}}" data-index="{{index}}" data-id="{{item.id}}" bindtap="switchTab">{{item.reason}}</view>
+      </view>
+    </view>
+    <view class="footer">
+      <block wx:if="{{id>=0}}">
+        <button class="btn_true" bindtap="complete">提交</button>
+      </block>
+      <block wx:else>
+        <button class="btn" bindtap="complete" disabled>提交</button>
+      </block>
+    </view>
+  </view>

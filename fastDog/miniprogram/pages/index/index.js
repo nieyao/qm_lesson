@@ -1,7 +1,7 @@
 //index.js
 const util = require('../../utils/util.js')
 const app = getApp();
-let globalData;
+const globalData = app.globalData; 
 const QQMapWX = require('../../wxSDK/qqmap-wx-jssdk.min.js')
  
 // 实例化API核心类
@@ -64,7 +64,7 @@ Page({
   },
 
   onLoad: function() { 
-    globalData = getApp().globalData;//重新获取下全局的globalData,以便成功初始化
+    
   },
 
   onShow:function(){
@@ -81,7 +81,7 @@ Page({
 
       this.getPrice(this.data.index);
       
-      console.log(globalData.distance,"nieyao")
+      console.log(globalData.distance,"nieyao",globalData.receiveAdrr)
   },
 
   onReady:function(){

@@ -1,0 +1,5 @@
+{
+  "usingComponents":{
+    "wux-badge":"../../components/badge/index"
+  }
+}

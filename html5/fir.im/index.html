@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    	
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         * {
             margin: 0;
             padding: 0;
         }
+	
+       
 
         html,
         body {
@@ -24,7 +28,8 @@
 
         .plane-wrapper {
             position: absolute;
-            top: 50%;
+            top: 25%;
+            left: 25%;
             display: inline-block;
             animation: undulate 8s linear infinite;
             animation-direction: alternate;
@@ -94,6 +99,21 @@
             }
 
         }
+
+         @media screen and (max-width: 1100px) { 
+           
+            .plane-wrapper>img, .plane-wrapper .rotate-container>img{
+                transition: all .5s;
+                transform: scale(.7);
+            }
+            .plane-wrapper{
+               left: 5%;
+            }
+            .plane-wrapper .rotate-container{
+                top: 48%;
+                left: 20%;
+            }
+         }
     </style>
 </head>
 
@@ -112,7 +132,7 @@
 
 
     <div class="section section-1 ready">
-        <div class="plane-wrapper" style="left:315.5px">
+        <div class="plane-wrapper" style="left: 315.5px">
             <img src="http://fir.im/images/plane.svg" alt="" class="plane">
             <div class="rotate-container">
                 <img src="http://fir.im/images/propeller.svg" alt="" class="propeller">
@@ -132,6 +152,9 @@
             section.classList.add('animate-out');
             // console.log(this)
         });
+        window.onresize = function(){
+            let wrapper = document.querySelector('.plane-wrapper');
+        }
     </script>
 </body>
 

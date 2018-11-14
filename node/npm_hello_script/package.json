@@ -1,0 +1,21 @@
+{
+  "name": "npm_hello_script",
+  "version": "1.0.0",
+  "description": "1. 工作流\r gulp\r   task\r   .src\r   .pipe\r   .dest()",
+  "main": "index.js",
+  "scripts": {
+    "lint:js": "eslint *.js",
+    "lint:css": "stylelint *.less",
+    "test": "npm-run-all --parallel lint:*"
+  },
+  "keywords": [],
+  "author": "nieyao <1161781399@qq.com> (http://github.com/nieyao)",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "stylelint-config-standard": "^18.2.0"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.3"
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  const postsPromise = fetch('https://www.easy-mock.com/mock/5bca9240e6742c1bf8220bbd/kicamp/post');
+  const streetCarsPromise = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=paris');
+    // ajax,定时器,数据库操作,上传下载服务 10s
+    // Promise 异步代码的顺序执行
+    // 1. 先执行哪个，一个结果是另一个的需求
+    // 2. 不管先后顺序，只要两者都执行完了就行
+    // postsPromise
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data)
+    //     // 嵌套 异步问题 js 天生就有 callback回调地狱
+    //     return streetCarsPromise;
+    //     // streetCarsPromise
+    //     //   .then(res => res.json())
+    //     //   .then(data => {
+    //     //     console.log(data)
+    //     //   })
+    //   })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       console.log(data)
+    //     })
+  Promise
+    .all([postsPromise,streetCarsPromise])
+    .then(responses =>{
+      // console.log("f")
+      // console.log(postsPromise)
+      // return Promise.all()
+      return Promise.all(responses.map(res => res.json()))
+      .then(responses =>{
+        console.log(responses)
+      })
+    })
+  </script>
+</body>
+</html>

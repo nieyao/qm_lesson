@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="people">
+    <p>Wes</p>
+    <p>kait</p>
+    <p>Randy</p>
+  </div>
+  <script>
+  const people = Array.from(document.querySelectorAll('.people p'));
+  const names = people.map(person =>person.textContext);
+  console.log(names)
+
+  const deepDish = {
+    pizzaName:'Deep Fish',
+    size:'Medium',
+    ingredients:['Marinara','Italian Sausage','Dough','Cheese']
+  };
+
+  const shoppingList = ['Milk','Flour',...deepDish.ingredients];
+  console.log(shoppingList);
+  const team = ['孙大勇','天哥','狂小狗','麻辣香锅','小虎','let me','明'];
+  // 解构
+  const [captain,assistant,...players] = team;
+  console.log(players)
+  // const captain = team[0];
+  // const assistant = team[1];
+  // const players = team.splice(2);
+  // console.log(players)
+  </script>
+</body>
+</html>

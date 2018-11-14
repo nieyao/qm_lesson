@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">
+    <div class="username"></div>
+    <div class="motto"></div>
+  </div>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script> -->
+  <script>
+      document.addEventListener('DOMContentLoaded',function(){
+        const eleUsername = document.querySelector('.username');
+        const eleMotto = document.querySelector('.motto');
+        let xhr = null;//异步js 主动拉取的核心对象  Ajax
+        // 浏览器嗅探
+        if(window.XMLHttpRequest){
+          xhr = new XMLHttpRequest();
+        } else{
+          //old browser
+          xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        // 页面打开一个去url .json资源 后端数据服务的通道
+        //主动拉
+        xhr.open('get','/dream.json',true);         
+        xhr.send();
+        xhr.onreadystatechange = function(){
+          console.log(xhr.status)
+          if(xhr.readyState ===4 && xhr.status == 200){//当readyState为4且状态为200 响应已就绪
+            console.log(xhr.responseText);
+            const dream = JSON.parse(xhr.responseText)//json转化为js对象
+            console.log(dream);
+            eleUsername.innerHTML = dream.username;
+            eleMotto.innerHTML = dream.motto;
+          } 
+        }
+      })
+      // $(function(){
+      //   // $('.username').html('颖宝');
+      //   $.getJSON('./dream.json',function(data){
+      //     console.log(data);
+      //     $('.username').html(data.username);
+      //     $('.motto').html(data.motto);
+      //   })
+      // });
+      // 阻塞型的
+      // const eleUsername = document.querySelector('.username');
+      // console.log(eleUsername);
+      // doReady 比window.onload 早一些
+      // $(function(){
+      //   const eleUsername = document.querySelector('.username');
+      //   console.log(eleUsername);
+      // })
+      // document.addEventListener('DOMContentLoaded',function(){
+      //   console.log('domcontentloaded');
+      // });
+      // window.onload = function(){
+      //   console.log('load');
+      // }
+      </script>
+</body>
+</html>

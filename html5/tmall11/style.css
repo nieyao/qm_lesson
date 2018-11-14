@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,body{
+  height: 100%;
+}
+
+.html_content{
+  height: 100%;
+}
+
+.item-section{
+  background-color: #ee0a3b;
+  position: relative;
+  min-height: 100%;
+}
+
+.item-section_header img{
+  width: 10rem;
+}
+
+ul,li{
+  list-style: none;
+  position: relative;
+}
+
+li{
+  box-shadow: 1px 1px 1px #ffffff ;
+}
+.item-section ul{
+  padding: 0.133333rem;
+}
+
+.flag{
+  display: table;
+  width: 100%;
+  margin-bottom: 1px;
+  background: #ffffff;
+}
+
+.flag .flag-item{
+  display: table-cell;
+  padding: 0.16rem 0;
+  vertical-align: top;
+  background: #ffffff;
+}
+
+.flag .flag-item.figure{
+  width: 2.346667rem;
+  height: 2.346666rem;
+}
+
+.flag .flag-item.figure img{
+  max-width: 100%;
+}
+
+.flag .flag-title{
+  margin-left: 0.213333rem;
+}
+.flag .flag-title a{
+  color: black;
+}
+
+
+.flag .flag-price span{
+  background-color:#f32a4c;
+  color: #ffffff;
+  margin-left: 0.213333rem;
+}
+
+.flag .flag-price strong{
+  color: #ff1349;
+  font-size: 0.4rem;
+}
+
+.flag .flag-price small{
+  color: #ff1349;
+  font-size: 0.3rem;
+  font-weight: bold;
+}
+
+.flag .flag-type{
+  color: #ff6a30;
+  margin-left: 0.213333rem;
+  margin-top: 0.166666rem;
+}
+
+.flag .flag-btn{
+  height: 0.64rem;
+  width:2.133333rem;
+  position: absolute;
+  bottom: .133333rem;
+  right: .2rem;
+  text-align: center;
+  line-height: 0.64rem;
+  display: block;
+  background-color: #f5294c;
+  font-size: 0.4rem;
+  color: #ffffff;
+  font-weight: bold;
+}

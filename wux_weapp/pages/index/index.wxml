@@ -1,0 +1,12 @@
+<!--index.wxml-->
+<view class="container">
+    <wux-badge count="{{num}}" wux-class-badge="green_badge"></wux-badge>
+  <!-- <wux-badge count="9"></wux-badge>
+  <wux-badge count="110"></wux-badge>
+  <wux-badge status="success" text="支付成功"></wux-badge>
+  <wux-badge dot="true"></wux-badge>
+  <wux-badge showZero="true"></wux-badge>
+  <wux-badge count="1000" overflow-count="1024">
+    <view class="example_badge">评论</view>
+  </wux-badge> -->
+</view>

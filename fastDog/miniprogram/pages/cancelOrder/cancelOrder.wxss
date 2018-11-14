@@ -7,7 +7,7 @@
 }
 .reason{
   background: #f7f7f7;
-  width: 660rpx;
+  width: 600rpx;
   height: 40rpx;
   line-height: 40rpx;
   text-align: left;
@@ -15,8 +15,32 @@
   font-size: 30rpx;
   margin: 20rpx;
 }
+
+.reasons .reason.on{
+  color: #e6464b;
+  background: #feeeee;
+  border: 2px solid #f7bbbc;
+}
+
+.diyReason{
+  background: #f7f7f7;
+  width: 600rpx;
+  height: 100rpx;
+  text-align: left;
+  padding: 30rpx;
+  font-size: 30rpx;
+  margin: 40rpx 0 20rpx 20rpx;
+  white-space:pre-wrap;
+}
 .btn{
   width: 660rpx;
   background: #dedede;
   color: #ffffff;
 }
+
+.btn_true{
+  width: 660rpx;
+  background: #e6454a;
+  color: #ffffff;
+}
+

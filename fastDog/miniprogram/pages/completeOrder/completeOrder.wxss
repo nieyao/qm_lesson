@@ -1,0 +1,36 @@
+/* miniprogram/pages/completeOrder/completeOrder.wxss */
+.header{
+  margin-top: 50rpx;
+  text-align: center;
+  width: 750rpx;
+  font-size: 36rpx;
+}
+.reason{
+  background: #f7f7f7;
+  width: 600rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: left;
+  padding: 30rpx;
+  font-size: 30rpx;
+  margin: 20rpx;
+}
+
+.reasons .reason.on{
+  color: #e6464b;
+  background: #feeeee;
+  border: 2px solid #f7bbbc;
+}
+
+.btn{
+  width: 660rpx;
+  background: #dedede;
+  color: #ffffff;
+}
+
+.btn_true{
+  width: 660rpx;
+  background: #e6454a;
+  color: #ffffff;
+}
+

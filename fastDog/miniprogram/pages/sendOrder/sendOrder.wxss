@@ -31,3 +31,10 @@
   line-height: 100rpx;
   font-size: 30rpx;
 }
+
+.text{
+  width: 100pxz;
+  height: 300rpx;
+  text-align: center;
+  line-height: 300rpx;
+}

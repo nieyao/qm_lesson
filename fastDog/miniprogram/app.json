@@ -1,10 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/order/order",
+    "pages/completeOrder/completeOrder",
     
-    "pages/sendOrder/sendOrder",
+    "pages/order/order",
     "pages/cancelOrder/cancelOrder",
+    "pages/sendOrder/sendOrder",
     "pages/otherlogin/otherlogin",
     "pages/ShipAddr/ShipAddr",
     "pages/debit/debit",
@@ -16,7 +17,6 @@
     "pages/addFunction/addFunction",
     "pages/deployFunctions/deployFunctions",
     "pages/chooseLib/chooseLib",
-    
     "pages/coupon/coupon",
     "pages/protocol/protocol",
     "pages/switchcity/switchcity",

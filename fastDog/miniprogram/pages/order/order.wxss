@@ -28,6 +28,12 @@ page{
   margin-right: 30rpx;
 }
 
+.status2{
+  color: green;
+  float: right;
+  margin-right: 30rpx;
+}
+
 .content{
   width: 700rpx;
   height: 160rpx;

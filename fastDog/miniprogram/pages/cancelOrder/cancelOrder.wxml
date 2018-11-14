@@ -3,10 +3,16 @@
   <view class="header">请您告诉我们取消原因，我们会努力改进！</view>
   <view class="content">
     <view class="reasons" wx:for="{{reasons}}" wx:key="index">
-      <view class="reason">{{item.reason}}</view>
+      <view class="reason {{id === index ?'on': ''}}" data-index="{{index}}" data-id="{{item.id}}" bindtap="switchTab">{{item.reason}}</view>
     </view>
+    <textarea type="text" class="diyReason" placeholder="以上都不是？偷偷告诉我们原因吧。填写内容将被严格匿名，请放心填写"/>
   </view>
   <view class="footer">
-    <button class="btn" bindtap="cancel">提交</button>
+    <block wx:if="{{id>=0}}">
+      <button class="btn_true" bindtap="cancel">提交</button>
+    </block>
+    <block wx:else>
+      <button class="btn" bindtap="cancel" disabled>提交</button>
+    </block>
   </view>
 </view>

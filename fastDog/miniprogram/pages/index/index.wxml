@@ -3,7 +3,7 @@
   <view class="tabheader">
     <view class="tabbar1 {{selected1?'red':'black'}}" bindtap="selected1">拉货</view>
     <view class="tabbar2 {{selected2?'red':'black'}}" bindtap="selected2">快运</view>
-    <van-icon class="user" name="contact" bind:click="toUser" />
+    <van-icon class="user" name="contact" bind:click="toUser"/>
   </view>
   <view class="{{selected1?'show':'hidden'}}">
     <map id="map" class="map" longitude="{{longitude}}" latitude="{{latitude}}" show-location="true" markers="{{markers}}" bindregionchange="regionchange">

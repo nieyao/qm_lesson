@@ -10,7 +10,7 @@
               <span class="status">已取消</span>
             </block>
             <block wx:else>
-                <span class="status">已完成</span>
+                <span class="status2">已完成</span>
             </block>
           </view>
           <view class="content">
@@ -23,5 +23,5 @@
     </block>
   </van-tab>
   <van-tab title="服务中">内容 2</van-tab>
-  <van-tab title="代付款">内容 3</van-tab>
+  <van-tab title="待付款">内容 3</van-tab>
 </van-tabs>

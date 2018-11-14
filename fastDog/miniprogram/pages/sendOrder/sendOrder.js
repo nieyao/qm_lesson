@@ -9,7 +9,8 @@ Page({
   data: {
     markers: [],
     latitude: 23.099994,
-    longitude: 113.324520
+    longitude: 113.324520,
+    complete:false
   },
 
   /**
@@ -38,7 +39,8 @@ Page({
       latitude:globalData.shipLocation.lat,
       longitude:globalData.shipLocation.lng
     })
-    console.log(globalData.shipLocation.lng,this.data.markers.longitude)
+
+    this.wait();
   },
 
   /**
@@ -93,6 +95,20 @@ Page({
   cancelOrder:function(){
     wx.navigateTo({
       url:'../cancelOrder/cancelOrder'
+    })
+  },
+
+  wait:function(){
+    setTimeout(() => {
+      this.setData({
+        complete:true
+      })
+    }, 15000);
+  },
+
+  completeOrder:function(){
+    wx.navigateTo({
+      url:'../completeOrder/completeOrder'
     })
   }
 })

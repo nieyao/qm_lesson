@@ -18,7 +18,7 @@ Page({
     keyword:"",
     searchresult:[],
     scrollheight:0,
-    city:""
+    city:"南昌"
   },
 
   /**

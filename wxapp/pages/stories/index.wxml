@@ -1,0 +1,13 @@
+<view class="cards">
+    <view class="card" wx:for="{{stories}}" wx:key="id">
+      <video 
+      hidden="{{currentVid !== item.id}}"
+      id="{{item.id}}"
+      poster="{{item.image}}"
+      src="https://resources.ninghao.net/landrover/finding-adventure-at-home-480.mp4"
+      objectFit="cover"
+      duration="{{item.duration_raw}}"></video>
+      <image data-vid="{{item.id}}" bindtap="play" src="{{item.image}}" mode="aspectFill" hidden="{{currentVid == item.id}}"/>
+      <view class="label">{{item.duration}}</view>
+    </view>
+  </view>

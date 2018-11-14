@@ -1,0 +1,29 @@
+/* components/badge/index.wxss */
+.wux-badge{
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.wux-badge__count{
+  position: absolute;
+  transform: translateX(50%);
+  transform-origin: -10% center;
+  top: -12rpx;
+  right: 0;
+  height: 36rpx;
+  border-radius: 18rpx;
+  min-width: 36rpx;
+  background: #ed3f14;
+  color: #ffffff;
+  line-height: 36rpx;
+  text-align: center;
+  padding: 0 10px;
+  font-size: 24rpx;
+  white-space: nowrap;
+  z-index: 10;
+  box-shadow: 0 0 0 2rpx #fff;
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}

@@ -1,10 +1,18 @@
 <!--miniprogram/pages/sendOrder/sendOrder.wxml-->
 <view class="container">
-  <map class="map" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></map>
-  <view class="wait">正在派单，请稍后 ···</view>
-  <view class="footer">
-    <view class="contact">联系客服</view>
-    <view class="cancel" bindtap="cancelOrder">取消订单</view>
-  </view>
+  <block wx:if="{{complete == false}}">
+    <map class="map" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}"></map>
+    <view class="wait">正在派单，请稍后 ···</view>
+    <view class="footer">
+      <view class="contact">联系客服</view>
+      <view class="cancel" bindtap="cancelOrder">取消订单</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="text">
+        <text>请给我一首歌的时间就到</text>
+    </view>
+    <button bindtap="completeOrder">点我订单就完成了</button>
+  </block>
 </view>
 

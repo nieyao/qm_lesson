@@ -1,0 +1,2 @@
+<!--miniprogram/pages/imageCheck/imageCheck.wxml-->
+<button bindtap="imageCheck"></button>

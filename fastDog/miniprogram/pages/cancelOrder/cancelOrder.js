@@ -27,16 +27,14 @@ Page({
         reason:'我已经找到其他车了',
         id:3
       },
-    ]
-      
-    
+    ] 
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    
   },
 
   /**
@@ -99,11 +97,20 @@ Page({
         isdone:false
       }
     })
-    app.init();
+    app.init();//返回首页并初始化globalData
     wx.navigateTo({
       url:'../index/index'
     })
     
     // console.log(globalData.time,globalData.address,globalData.receiveAdrr,globalData.price)
+  },
+
+  switchTab:function(e){
+    console.log(e);
+    console.log( e.currentTarget.dataset.index,e.currentTarget.dataset.id);
+    this.setData({
+      index:e.currentTarget.dataset.index,
+      id:e.currentTarget.dataset.id
+    })
   }
 })
