@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Material Design</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/materialize/1.0.0-rc.2/css/materialize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+  <nav>
+    <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only">
+      <i class="material-icons">menu</i>
+    </a>
+  </nav>
+  <ul id="slide-out" class="sidenav">
+      <li><div class="user-view">
+        <div class="background">
+          <img src="https://materializecss.com/images/office.jpg">
+        </div>
+        <a href="#user"><img class="circle" src="https://materializecss.com/images/yuna.jpg"></a>
+        <a href="#name"><span class="white-text name">John Doe</span></a>
+        <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      </div></li>
+      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+      <li><a href="#!">Second Link</a></li>
+      <li><div class="divider"></div></li>
+      <li><a class="subheader">Subheader</a></li>
+      <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+    </ul>
+<!-- <a href="#" class="btn btn-large waves-effect waves-light">button</a>
+<a href="#" class="btn waves-effect waves-light">
+  <i class="material-icons left">cloud</i>
+  button</a> -->
+<script src="https://cdn.bootcss.com/materialize/1.0.0-rc.2/js/materialize.min.js">
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var eles = document.querySelectorAll('.sidenav');
+  var instance = M.Sidenav.init(eles, {});
+});
+</script>
+</body>
+</html>
