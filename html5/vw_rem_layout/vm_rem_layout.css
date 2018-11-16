@@ -1,0 +1,131 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+  outline: 0;
+}
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+a, a:visited { 
+  text-decoration: none;
+  color: #333333;
+}
+img {
+  border: none;
+  vertical-align: top;
+}
+i, em { font-style: normal;}
+html {
+  font-size: 20vw;
+}
+ul, li {list-style: none;}
+body {
+  max-width: 540px;
+  min-width: 320px;
+  margin: 0 auto;
+  background: #e8e8e8;
+  font-size: 14px;
+  font-family: -apple-system, sans-serif;
+  line-height: 1.5;
+  color: #666666;
+  -webkit-text-size-adjust: 100% !important;
+}
+/* S 轮播样式 */
+.mod_slide {
+  position: relative;
+}
+.mod_slide_list_item img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.mod_slide_inner {
+  overflow: hidden;
+}
+.mod_slide_list {
+  font-size: 0;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  overflow-x: auto;
+}
+.mod_slide_list_item {
+  width: 100%;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-top: 45.333333%;
+  display: inline-block;
+  vertical-align: top;
+}
+.mod_slide_list::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+.mod_slide_indexs{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 0.13333rem;
+}
+.mod_slide_indexs_item {
+  display: inline-block;
+  width: 0.053333rem;
+  height: 0.053333rem;
+  border-radius: 0.053333rem;
+  background-color: rgba(0,0,0,.3);
+}
+.mod_slide_indexs_item:not(:last-child) {
+  margin-right: 0.066667rem; 
+}
+.mod_slide_indexs_item.cur {
+  background-color: #e4393c;
+}
+/* E 轮播样式 */
+/* S 广告位 */
+.mod_banner {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-top: 13.33333%;
+}
+.mod_banner img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* E 广告位 */
+/* S 二级导航 */
+.mod_nav {
+  background-color: #ffffff;
+}
+.mod_nav_list {
+  display: flex;
+  padding: 0.2rem 0.13333rem 0.133333rem;
+}
+.mod_nav_list_item {
+  flex: 1;
+  text-align: center;
+  font-size: 10px;
+}
+.mod_nav_list_item_logo {
+  display: block;
+  margin: 0 auto;
+  width: 0.533333rem;
+  height: 0.53333rem;
+}
+.mod_nav_list_item_logo img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+.mod_nav_list_item_name {
+  margin-top: 0.02667rem;
+}
+/* E 二级导航 */
