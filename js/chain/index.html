@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>chain</title>
+  <style>
+    div{
+      display: none;
+      height: 200px;
+      background: green;
+    }
+  </style>
+</head>
+<body>
+  <div></div>
+  <!-- <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script> -->
+  <script>
+    // $(function(){
+    //   $('div')
+    //     .eq(0)
+    //     .css("width","200px")
+    //     .fadeIn(3000)
+    // })
+
+    // 类，
+    function JQuery(selector){
+      // selector?
+      this.elements = document.querySelectorAll(selector);
+    }
+    JQuery.prototype = {
+      eq:function(index){
+        // 返回第几个元素
+        this.elements = [this.elements[index]];
+        return this;
+      },
+      css:function(prop,value){
+        this.elements.forEach(function(el){
+          el.style[prop] = value
+        })
+        return this;
+      },
+      show:function(){
+        // this.elements.forEach(function(el){
+        //   el.style.display = "block"
+        // })
+        this.css('display','block');
+        return this;
+      }
+    }
+    window.$ =function(selector){
+      // 返回
+      return new JQuery(selector);
+    }
+    const firstDiv = $('div')
+      .eq(0)
+      .css("width","300px")
+      .show()
+    console.log(firstDiv)
+    // $('div') => JQuery new?
+  </script>
+</body>
+</html>
