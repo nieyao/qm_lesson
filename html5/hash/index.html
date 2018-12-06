@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .btn {
+      padding: 10px 20px;
+      background: green;
+      color: white;
+      text-decoration: none;
+      height: 30px;
+      line-height: 30px;
+      margin-right: 10px;
+    }
+    #hello, #hi {
+    height: 500px;
+    background: #666;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    line-height: 500px;
+    color: white;
+    font-size: 100px;
+    transition: all 2s;
+    transform: translateX(100%);
+  }
+
+  </style>
+</head>
+<body>
+  <a href="#/hello" class="btn">hello hash</a>
+  <a href="#/hi" class="btn">hi hash</a>
+  <div id="hello">hello</div>
+  <div id="hi">hi</div>
+  <script>
+    const hello = document.getElementById('hello');
+    const hi = document.getElementById('hi');
+    // https://www.baidu.com/path?querystring#/hello
+    // url hash部分变了，不会发生http请求，页面不会被刷新
+    window.addEventListener('hashchange', e => {
+      var hashTag = window.location.hash.substring(1);
+      // console.log(hashTag);
+      if (hashTag === '/hello') {
+        hello.style.transform = 'translate(0%,0%)';
+        hi.style.transform = 'translate(100%,100%)';
+      }else if (hashTag === '/hi') {
+        hello.style.transform = 'translate(100%,100%)';
+        hi.style.transform = 'translate(0%,0%)';
+        
+      }
+    })
+  </script>
+</body>
+</html>
