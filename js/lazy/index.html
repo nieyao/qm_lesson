@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <a href="javascript:;" id="btn">点我</a>
+<script>
+function addEvent(type, el, fn) {
+  if (window.addEventListener) {
+    //惰性一下
+    addEvent = function(type,el,fn) {
+      el.addEventListener(type,fn,false);
+    }
+  }else if (window.attachEvent) {
+    addEvent = function (type,el,fn) {
+      el.attachEvent('on' + type,fn);
+    }
+  }
+  return addEvent(type,el,fn);
+  
+}
+addEvent('click', document.getElementById('btn'), () => {
+  alert('点击了按钮')
+})
+</script>
+</body>
+</html>
