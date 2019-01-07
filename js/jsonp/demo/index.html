@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    function ajax (params) {
+      params = params || {};
+      params.data = params.data || {};
+      var json = params.jsonp? jsonp(params): json(params);
+
+      function json (params) {
+        params.type = (params.type || 'GET').toUpperCase();
+        params.data = formatParams(params.data);
+        var xhr = null; 
+        if (window.XMLHttpRequest) {
+          xhr = new XMLHttpRequest();
+        } else {
+          xhr = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+        xhr.onreadystatechange = function () {
+          // 不在活跃
+          if (xhr.readyState === 4) {
+            var status = xhr.status;
+            if (status >= 200 && status < 300) {
+              var response = '';
+              var type = xhr.getResponseHeader('Content-Type');
+              if (type.indexOf('xml') !== -1 && xhr.responseXML) {
+                response = xhr.responseXML;
+              } else if (type === 'application/json') {
+                response = JSON.parse(xhr.responseText);
+              } else {
+                response = xhr.responseText;
+              }
+              params.success && params.success(response);
+            } else {
+              params.error && arams.error(status);
+            }
+          }
+        }
+        if (params.type === 'GET') {
+          xhr.open(params.type, params.url + '?' + params.data, true);
+          xhr.send(null);
+        } else {
+          xhr.open(params.type, params.url, true);
+          // http 头部
+          xhr.setRequestHeader('Content-Type', 'application/x-www-from-urlencoded;charset=UTF-8');
+          xhr.send(params.data);
+        }
+      }
+
+      function formatParams (data) {
+        var arr = [];
+        for (var name in data) {
+          // queryString /path?a=1&b=2
+          arr.push(encodeURIComponent(name) + '=' + encodeURIComponent(data[name]));
+        }
+        arr.push('v=' + random())
+        return arr.join('&')
+      }
+
+      function random () {
+        return Math.floor(Math.random()*10000 + 500)
+      }
+    }
+  </script>
+  <script>
+    // 同一domain localhost 同port 8080
+    ajax({
+      url: '/data.json',
+      // jsonp: 'jsonpCallback',
+      data: { 'b': '异步请求'},
+      success: function(res) {
+        console.log(res);
+      },
+      error: function(res) {
+        console.log(res);
+      }
+    })
+    // fetch('http://localhost:8080/data.json')
+    //   .then(data => data.json())
+    //   .then(data => {
+    //     console.log(data);
+    //   })
+  </script>
+</body>
+</html>
