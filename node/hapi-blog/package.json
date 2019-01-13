@@ -1,0 +1,29 @@
+{
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "dayjs": "^1.7.8",
+    "env2": "^2.2.2",
+    "hapi": "16",
+    "hapi-pagination": "1",
+    "hapi-redis": "6",
+    "hapi-swagger": "7",
+    "inert": "4",
+    "mysql2": "^1.6.4",
+    "package": "1",
+    "sequelize": "^4.42.0",
+    "sequelize-cli": "^5.4.0",
+    "vision": "4"
+  },
+  "name": "hapi-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "cross-env NODE_ENV=development nodemon app.js",
+    "prod": "cross-env NODE_ENV=production nodemon app.js"
+  },
+  "keywords": [],
+  "author": "nieyao <nieyao <1161781399@qq.com> (https://github.com/nieyao)",
+  "license": "ISC",
+  "description": ""
+}
