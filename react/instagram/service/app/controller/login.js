@@ -16,10 +16,7 @@ class LoginController extends Controller {
         // domain: '127.0.0.1',
       };
       ctx.cookies.set(this.config.auth_cookie_name, token, opts);
-      ctx.status = 200;
-      ctx.body = {
-        message: '登录成功',
-      };
+      ctx.returnBody(200, '登录成功');
     } else {
       ctx.throw(400, '用户名或密码错误');
     }
@@ -29,6 +26,11 @@ class LoginController extends Controller {
     const { password, username, email } = ctx.request.body;
     ctx.body = `${password}, ${username}, ${email}`;
     await ctx.service.user.register({ password, username, email });
+  }
+  async signOut() {
+    const { ctx } = this;
+    ctx.cookies.set(this.config.auth_cookie_name, '');
+    ctx.returnBody(200, '退出登录成功');
   }
 }
 

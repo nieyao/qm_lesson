@@ -1,6 +1,9 @@
 import React from 'react';
 import { Form, Icon, Input, Button, notification } from 'antd';
 import Style from './index.scss';
+import { withRouter } from 'react-router';
+import API from '@common/api.js';
+import { throws } from 'assert';
 
 const FormItem = Form.Item;
 
@@ -62,17 +65,20 @@ class LoginForm extends React.Component {
     this.props.form.validateFields(async(err, values) => {
       if (!err) {
         console.log(values);
+        let response = await API.login(values)
+        // console.log(response);
         notification['success']({
           message: '登录成功'
         })
-        // let response = await API.login(values);
-      } else {
-
       }
+      const { history } = this.props;
+      setTimeout(() => {
+        history.push('/')
+      }, 500);
     })
   }
 }
 
 const WrappedLoginForm = Form.create()(LoginForm);
 
-export default WrappedLoginForm;
+export default withRouter(WrappedLoginForm);

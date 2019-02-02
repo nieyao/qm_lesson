@@ -11,4 +11,15 @@ module.exports = app => {
   // api 版本的
   apiV2Router.post('/login/register', controller.login.register);
   apiV2Router.post('/login', controller.login.loginIn);
+  apiV2Router.get('/login/signout', controller.login.signOut);
+  apiV2Router.get('/user/info', controller.user.userInfo);
+
+  // follow
+  apiV2Router.post('/friend/follow', controller.friend.follow);
+  apiV2Router.get('/friend/list', controller.friend.notFollowList);
+
+  // topic
+  apiV2Router.post('/topic/add', controller.topic.addTopic);
+  apiV2Router.get('/topic/detail', controller.topic.topicDetail);
+
 };

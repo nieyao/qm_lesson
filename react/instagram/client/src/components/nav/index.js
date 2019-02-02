@@ -2,8 +2,28 @@ import React from 'react';
 import { Menu, Dropdown, notification } from 'antd';
 import { Link } from 'react-router-dom';
 import Style from './index.scss';
-console.log(Style)
+import { connect } from 'react-redux';
+import API from '@common/api'
+import { withRouter } from 'react-router';
+// console.log(Style)
 
+@connect(
+  store => {
+    return {
+      userInfo: store.userInfo
+    }
+  },
+  dispatch => {
+    return {
+      addUserInfo: info => {
+        dispatch({
+          type: 'ADD_USERINFO',
+          info
+        })
+      }
+    }
+  }
+)
 class Nav extends React.Component {
   constructor (props) {
     super(props);
@@ -36,11 +56,21 @@ class Nav extends React.Component {
       console.log('search api')
     }
   }
+
+  async signOut () {
+    let response = await API.signout();
+    notification['success']({
+      message: response.message
+    })
+    setTimeout(() => {
+      this.props.history.push('/login');
+    },500)
+  }
   render () {
     const aboutMenu = (
       <Menu>
         <Menu.Item>关于我</Menu.Item>
-        <Menu.Item>退出登录</Menu.Item>
+        <Menu.Item onClick={this.signOut.bind(this)}>退出登录</Menu.Item>
       </Menu>
     );
     return (
@@ -82,6 +112,14 @@ class Nav extends React.Component {
     </nav>
     )
   }
+  componentDidMount () {
+    if (!this.props.userInfo.userId) {
+      API.getUserInfo().then(response => {
+        // console.log(response);
+        this.props.addUserInfo(response.data);
+      })
+    }
+  }
 }
 
-export default Nav;
+export default withRouter(Nav);
