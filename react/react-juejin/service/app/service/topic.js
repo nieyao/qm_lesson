@@ -54,6 +54,31 @@ class TopicService extends Service {
     }
     return topicDetail || {}
   }
+
+  async insertDiscuss(discuss) {
+    const { ctx } = this;
+    return await ctx.model.Discuss.create(discuss);
+  }
+
+  async putTopicLike(query, topicStatus) {
+    const { ctx } = this;
+    const result = await this.queryTopicLike(query);
+
+    if (!result) {
+      return await ctx.model.TopicLike.create(topicStatus);
+    }
+    return await ctx.model.TopicLike.update(topicStatus, {
+      where: query,
+    });
+  }
+
+  async queryTopicLike(query) {
+    const { ctx } = this;
+
+    return await ctx.model.TopicLike.findOne({
+      where: query,
+    });
+  }
 }
 
 module.exports = TopicService;

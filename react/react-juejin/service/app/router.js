@@ -22,4 +22,10 @@ module.exports = app => {
   apiV2Router.post('/topic/add', controller.topic.addTopic);
   apiV2Router.get('/topic/detail', controller.topic.topicDetail);
   apiV2Router.get('/topic/friend/list', controller.topic.friendsTopicList);
+
+  // comments
+  apiV2Router.post('/topic/discuss/add', controller.topic.addDiscuss);
+
+  // like
+  apiV2Router.post('/topic/like', controller.topic.putTopicLike);
 };

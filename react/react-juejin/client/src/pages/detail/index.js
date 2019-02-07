@@ -5,12 +5,29 @@ import Recommend from './components/recommend';
 import API from '@common/api.js';
 import update from 'react-addons-update';
 import DynamicList from './components/dynamic-list';
+import { connect } from 'react-redux';
+import PostTopic from './components/post-topic';
 
+@connect(store => {
+  return {
+    topicList: store.topicList
+  }
+}, dispatch => {
+  return {
+    addTopicList: info => {
+      dispatch({
+        type: 'ADD_TOPICLIST',
+        info: info
+      })
+    }
+  }
+})
 class Detail extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
-      followList: []
+      followList: [],
+      showPostTopic: false
     }
     this.initFriendList(); // 获取推荐关注用户
     this.initFriendTopic(); //获取关注用户的Topic列表
@@ -29,7 +46,8 @@ class Detail extends React.Component {
 
   async initFriendTopic () {
     let response = await API.friendTopicList()
-    console.log(response)
+    console.log(response);
+    this.props.addTopicList(response.data);
   }
 
   setFollowStatus = async (index, status) => {
@@ -50,16 +68,27 @@ class Detail extends React.Component {
     return (
       <main>
         <Nav />
+        {
+          this.state.showPostTopic?
+          <PostTopic togglePostTopic={this.togglePostTopic} /> 
+          : ''
+        }
         <div className="page-container">
           <span className="loading"></span>
           <div className={Style['home-detail']}>
             <DynamicList />
             <Recommend followList={this.state.followList}
-              setFollowStatus={this.setFollowStatus} />
+              setFollowStatus={this.setFollowStatus}
+              togglePostTopic={this.togglePostTopic} />
           </div>
         </div>
       </main>
     )
+  }
+  togglePostTopic = () => {
+    this.setState({
+      showPostTopic: !this.state.showPostTopic
+    })
   }
 }
 

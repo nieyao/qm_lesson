@@ -58,6 +58,49 @@ class TopicController extends Controller {
 
     topicList && ctx.returnBody(200, '成功', topicList);
   }
+
+  async addDiscuss() {
+    const { ctx } = this;
+    const { topicId, replyContent } = ctx.request.body;
+    let userId = ctx.user.userId;
+    // discuss userId username 存一个冗余字段
+    let user = await this.service.user.getUserByUserId(userId);
+
+    let newDiscuss = {
+      topicId,
+      replyContent,
+      replyName: user.username,
+      userId,
+    }
+
+    let discuss = await ctx.service.topic.insertDiscuss(newDiscuss);
+
+    discuss && ctx.returnBody(200, '评论成功');
+    !discuss && ctx.returnBody(400, '网络异常，请重试');
+  }
+
+  async putTopicLike() {
+    const { ctx } = this;
+    const { topicId, status } = ctx.request.body;
+    const userId = ctx.user.userId;
+
+    let topicStatus = {
+      topicId,
+      userId,
+      status
+    }
+
+    // 点赞 create 取消点赞 update
+    let query = {
+      topicId,
+      userId
+    }
+
+    await ctx.service.topic.putTopicLike(query, topicStatus);
+    ctx.returnBody(200, '更新成功', {
+      status: +status
+    })
+  }
 }
 
 module.exports = TopicController;
