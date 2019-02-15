@@ -77,7 +77,6 @@ Page({
     }).get({
       success: res=> {
         this.setData({
-          shipAddr:res.data[0].shipAddr,
           orders:res.data
         })
         // console.log(res.data)

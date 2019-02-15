@@ -102,12 +102,6 @@ Page({
       this.setData({newaddress : !shipAddress ?  address : shipAddress}) 
     
         // console.log(address)
-      },
-      fail: function(res) {
-          // console.log(res);
-      },
-      complete: function(res) {
-          // console.log(res);
       }
   });
   },

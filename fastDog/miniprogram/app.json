@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/completeOrder/completeOrder",
-    
     "pages/order/order",
     "pages/cancelOrder/cancelOrder",
     "pages/sendOrder/sendOrder",
@@ -11,12 +10,6 @@
     "pages/debit/debit",
     "pages/user/user",
     "pages/login/login",
-    "pages/userConsole/userConsole",
-    "pages/storageConsole/storageConsole",
-    "pages/databaseGuide/databaseGuide",
-    "pages/addFunction/addFunction",
-    "pages/deployFunctions/deployFunctions",
-    "pages/chooseLib/chooseLib",
     "pages/coupon/coupon",
     "pages/protocol/protocol",
     "pages/switchcity/switchcity",
