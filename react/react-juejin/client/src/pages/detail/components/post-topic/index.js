@@ -4,7 +4,8 @@ import Avatar from '@components/avatar';
 import { connect } from 'react-redux';
 import Upload from '@components/upload';
 
-let ImageUpload = (uploadImgSuccess, changeUploadStatus) => {
+
+let ImageUpload = ({uploadImgSuccess, changeUploadStatus}) => {
   return (
     <section className="image-upload">
       <div>
@@ -33,7 +34,8 @@ class PostTopic extends React.Component {
     super(props);
     this.state = {
       uploadStatus: 0,
-      topicDescript: ''
+      topicDescript: '',
+      imageList: []
     }
   }
   render () {
@@ -43,10 +45,24 @@ class PostTopic extends React.Component {
       width: '40px',
       height: '40px'
     }
-
+    let ImgUpload = () => {
+      return (
+        <section className="input-url" key={2}>
+          <div className="notice">
+            <span className="close-circle" onClick={this.closeInputUrl}></span>
+            <i className="icon"></i>
+            <span>
+              <Upload successCb={this.uploadImgSuccess} className={'placeholder'} />
+              添加另一张
+            </span>
+          </div>
+        </section>
+      )
+    }
     let UploadPlaceholder = () => {
       return (
         <div>
+          
           {
             this.state.uploadStatus === 0 ?
             <ImageUpload uploadImgSuccess={this.uploadImgSuccess} 
@@ -76,8 +92,11 @@ class PostTopic extends React.Component {
     )
   }
 
-  uploadImgSuccess = () => {
-
+  uploadImgSuccess = (url) => {
+    this.setState({
+      imageList: [...this.state.imageList, url],
+      uploadStatus: 2
+    })
   }
   changeUploadStatus = (status) => {
 

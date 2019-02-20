@@ -28,4 +28,5 @@ module.exports = app => {
 
   // like
   apiV2Router.post('/topic/like', controller.topic.putTopicLike);
+  apiV2Router.get('/handle/upload/get-token', controller.handle.getQiniuToken);
 };
