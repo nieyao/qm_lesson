@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.13.2",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.21",
     "lokijs": "^1.5.5",
     "moment": "^2.22.2",
     "react": "^16.6.3",
